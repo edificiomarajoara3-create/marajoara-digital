@@ -1,0 +1,19 @@
+# Secrets / credentials
+.env
+.env.*
+!.env.example
+*credentials*.json
+*secret*.json
+*.pem
+*.key
+
+# Personal or operational data: keep outside the source repository
+fotos_originais/
+documentos_restritos/
+private-data/
+
+# Development
+node_modules/
+dist/
+build/
+.DS_Store
