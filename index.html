@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#AA3716">
+  <meta name="description" content="Conheça o Marajoara Digital, um projeto de memória, informação e comunicação para o Edifício Marajoara III.">
+  <title>Marajoara Digital | Edifício Marajoara III</title>
+  <style>
+    :root {
+      --terracota: #AA3716;
+      --terracota-dark: #7D2A13;
+      --cream: #F2E3C7;
+      --paper: #FBF7EF;
+      --ink: #2D180A;
+      --green: #4D5F2D;
+      --deep-green: #1E2F0F;
+      --olive: #868D4F;
+      --line: #E5D7BF;
+      --shadow: 0 16px 40px rgba(45,24,10,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    header { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-block: 15px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--terracota); color: white; font: bold 18px/1 Georgia,serif; border: 3px double var(--cream); }
+    .brand-text { display: grid; line-height: 1.18; }
+    .brand-text strong { font: bold 19px Georgia,serif; letter-spacing: .025em; }
+    .brand-text small { margin-top: 4px; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--green); }
+    nav { display: flex; gap: 23px; align-items: center; flex-wrap: wrap; }
+    nav a { font-size: 14px; font-weight: 650; text-decoration: none; }
+    nav a:hover { color: var(--terracota); }
+    .hero { position: relative; overflow: hidden; background: linear-gradient(140deg, var(--cream), #FBF5E9 60%, #E9EACF); }
+    .hero::before { content: ""; position: absolute; width: 470px; height: 470px; border: 1px solid rgba(77,95,45,.16); border-radius: 50%; right: -160px; top: -190px; box-shadow: 0 0 0 58px rgba(77,95,45,.06), 0 0 0 125px rgba(170,55,22,.025); }
+    .hero-inner { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center; padding-block: 96px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; background: rgba(77,95,45,.11); border: 1px solid rgba(77,95,45,.2); border-radius: 40px; color: var(--deep-green); text-transform: uppercase; font-size: 12px; letter-spacing: .11em; font-weight: 750; }
+    h1, h2, h3 { font-family: Georgia,"Times New Roman",serif; line-height: 1.12; }
+    h1 { font-size: clamp(43px, 5.9vw, 80px); letter-spacing: -.055em; margin: 24px 0; }
+    h1 em { color: var(--terracota); font-style: normal; }
+    .lead { max-width: 650px; font-size: clamp(17px,1.8vw,20px); color: #513C2E; }
+    .actions { display:flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { text-decoration: none; display: inline-block; padding: 13px 23px; border-radius: 7px; font-weight: 720; transition: transform .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--terracota); color: white; }
+    .button.secondary { border: 1px solid var(--terracota); color: var(--terracota-dark); background: rgba(255,255,255,.45); }
+    .hero-art { min-height: 370px; display: grid; place-items: center; }
+    .seal { width: min(100%,355px); aspect-ratio: 1; border-radius: 50%; background: var(--green); display: grid; place-items: center; box-shadow: var(--shadow); border: 12px solid #EEE5CE; outline: 2px solid var(--olive); color: var(--cream); }
+    .seal-inner { text-align: center; border: 1px solid rgba(242,227,199,.65); width: 82%; aspect-ratio: 1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .seal svg { width: 84px; height: 98px; margin-bottom: 10px; }
+    .seal b { font: bold 24px Georgia,serif; letter-spacing: .13em; }
+    .seal span { font: 12px Georgia,serif; letter-spacing: .23em; margin-top: 7px; }
+    section.content { padding-block: 80px; }
+    .section-title { max-width: 700px; }
+    .kicker { color: var(--terracota-dark); font-size: 12px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    h2 { font-size: clamp(32px,3.9vw,48px); margin: 12px 0 16px; }
+    .section-title p { color: #5D4D40; font-size: 17px; }
+    .cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 35px; }
+    .card { background: #FFFDF9; border: 1px solid var(--line); border-radius: 13px; padding: 31px; box-shadow: 0 6px 18px rgba(45,24,10,.035); }
+    .card-icon { display: grid; place-items: center; height: 51px; width: 51px; font: bold 25px Georgia,serif; color: var(--terracota); background: #F7E9DA; border-radius: 12px; }
+    .card h3 { margin: 24px 0 9px; font-size: 25px; }
+    .card p { color: #5D4D40; margin-bottom: 0; }
+    .status { background: var(--deep-green); color: var(--paper); }
+    .status-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 35px; padding-block: 55px; }
+    .status .kicker { color: #D9DFA7; }
+    .status h2 { margin-block: 10px; }
+    .status p { color: #E5E8D4; max-width: 640px; }
+    .status-tag { border: 1px solid rgba(242,227,199,.45); color: var(--cream); border-radius: 999px; padding: 11px 21px; white-space: nowrap; font-weight: 700; }
+    footer { background: var(--terracota-dark); color: #F5E8D5; padding-block: 27px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    footer small { font-size: 13px; }
+    @media (max-width: 800px) {
+      .hero-inner { grid-template-columns: 1fr; padding-block: 63px; gap: 22px; }
+      .hero-art { min-height: 250px; }
+      .seal { width: 250px; }
+      .seal svg { height: 75px; width: 70px; }
+      .seal b { font-size: 17px; }
+      .seal span { font-size: 10px; }
+      .cards { grid-template-columns: 1fr; }
+      .status-inner { grid-template-columns: 1fr; gap: 10px; }
+      .status-tag { justify-self: start; }
+    }
+    @media (max-width: 500px) { nav { gap: 13px; } nav a { font-size: 13px; } .brand-text strong { font-size: 16px; } section.content { padding-block: 58px; } .card { padding: 25px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+  </style>
+</head>
+<body>
+  <header id="inicio">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Marajoara Digital, início">
+        <span class="brand-mark" aria-hidden="true">III</span>
+        <span class="brand-text"><strong>Marajoara Digital</strong><small>Edifício Marajoara III</small></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#projeto">O projeto</a>
+        <a href="#recursos">Em planejamento</a>
+        <a href="#andamento">Andamento</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="titulo">
+      <div class="wrap hero-inner">
+        <div>
+          <span class="eyebrow">✦ Um novo capítulo do Marajoara</span>
+          <h1 id="titulo">Nossa história merece ser <em>bem cuidada.</em></h1>
+          <p class="lead">Um espaço digital pensado para reunir a memória das melhorias, os comunicados e as histórias que fazem parte do Edifício Marajoara III.</p>
+          <div class="actions">
+            <a class="button primary" href="#projeto">Conheça a proposta</a>
+            <a class="button secondary" href="#andamento">Acompanhe o projeto</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="seal"><div class="seal-inner">
+            <svg viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M18 86H72M27 86V19H63V86M23 19H67M38 12H52M38 34H43M53 34H58M38 48H43M53 48H58M38 62H43M53 62H58M41 86V73H49V86" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 79C12 72 16 69 24 68M82 79C78 72 74 69 66 68" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <b>MARAJOARA</b><span>EDIFÍCIO III</span>
+          </div></div>
+        </div>
+      </div>
+    </section>
+    <section class="content wrap" id="projeto">
+      <div class="section-title">
+        <span class="kicker">Memória • Comunicação • Organização</span>
+        <h2>Um lugar para registrar o que construímos juntos.</h2>
+        <p>O Marajoara Digital nasce como protótipo de um portal institucional. A proposta é facilitar a organização das informações do edifício, sempre com cuidado com a privacidade.</p>
+      </div>
+      <div class="cards" id="recursos">
+        <article class="card"><span class="card-icon" aria-hidden="true">✎</span><h3>Jornal Digital</h3><p>Um espaço planejado para futuras edições do Jornal Marajoara, com leitura confortável no celular e no computador.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">▧</span><h3>Memória das melhorias</h3><p>Um histórico organizado de obras, manutenção e transformações, com fotos previamente autorizadas.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">✦</span><h3>Comunicados</h3><p>Uma área em planejamento para divulgar novidades e informações de interesse do condomínio.</p></article>
+      </div>
+    </section>
+    <section class="status" id="andamento">
+      <div class="wrap status-inner">
+        <div><span class="kicker">Primeira versão</span><h2>Estamos construindo essa ideia.</h2><p>Este é um protótipo visual. Funcionalidades, publicações e acesso administrativo serão adicionados somente após revisão e autorização apropriadas.</p></div>
+        <span class="status-tag">Projeto em desenvolvimento</span>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><small>© <span id="ano">2026</span> Marajoara Digital · Edifício Marajoara III</small><small>Comunicação com identidade e cuidado.</small></div></footer>
+  <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+</html>
