@@ -1,0 +1,42 @@
+name: Publicar Marajoara Digital na Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    if: github.repository == 'edificiomarajoara3-create/marajoara-digital'
+    runs-on: ubuntu-latest
+
+    env:
+      VERCEL_ORG_ID: team_wLDajFkWzodj8rKZv0BOjqCv
+      VERCEL_PROJECT_ID: prj_jphUAhv9I3KKMCNzwNzucz97Kq0w
+
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Instalar Vercel CLI
+        run: npm install --global vercel@63.1.2
+
+      - name: Preparar ambiente
+        run: vercel pull --yes --environment=production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Construir site
+        run: vercel build --prod
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Publicar no projeto existente
+        run: vercel deploy --prebuilt --prod
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
