@@ -6,17 +6,6 @@
     2026
   ],
   "materias": [],
-  "edicoes": []
-},
-
-{
-  "versao": 1,
-  "nome": "Jornal Marajoara",
-  "descricao": "Arquivo público de matérias e edições autorizadas do Edifício Marajoara III.",
-  "anos_iniciais": [
-    2026
-  ],
-  "materias": [],
   "edicoes": [
     {
       "numero": "1",
@@ -27,4 +16,3 @@
     }
   ]
 }
-
