@@ -1,1334 +1,663 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#AA3716">
-<meta name="description" content="Edições, notícias e realizações do Jornal Marajoara.">
+<meta name="description" content="Matérias, realizações e edições do Jornal Marajoara.">
 <title>Jornal Marajoara | Edifício Marajoara III</title>
-
 <style>
-:root{
-  --terra:#AA3716;
-  --terra-esc:#7D2A13;
-  --creme:#F2E3C7;
-  --fundo:#FBF7EF;
-  --papel:#FFFDF9;
-  --texto:#2D180A;
-  --verde:#4D5F2D;
-  --borda:#E5D7BF;
-  --cinza:#655344;
+:root{--terra:#AA3716;--terra2:#7D2A13;--creme:#F2E3C7;--fundo:#FBF7EF;--papel:#FFFDF9;--texto:#2D180A;--verde:#4D5F2D;--escuro:#1E2F0F;--borda:#E5D7BF;--muted:#655344;--sombra:0 12px 32px #2d180a17}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fundo);color:var(--texto);font:16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif}
+a{color:inherit}button,input,select{font:inherit}button{cursor:pointer}
+:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+.container{width:min(1120px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:var(--fundo);border-bottom:1px solid var(--borda)}
+.topo{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative}
+.marca{display:flex;align-items:center;gap:11px;text-decoration:none}
+.selo{display:grid;place-items:center;width:44px;height:44px;flex:none;background:var(--terra);border:3px double var(--creme);border-radius:50%;color:#fff;font:700 18px Georgia,serif}
+.marca strong{display:block;font:700 19px Georgia,serif}
+.marca small{display:block;color:var(--verde);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;gap:17px;align-items:center}
+nav a{text-decoration:none;font-weight:750;font-size:13px}
+nav a:hover,nav a[aria-current]{color:var(--terra)}
+.menu{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:46px;height:46px;background:var(--papel);border:1px solid var(--borda);border-radius:10px}
+.menu span{width:22px;height:2px;background:var(--terra2)}
+.hero{padding:55px 0;background:linear-gradient(120deg,#F3E8D4,var(--fundo) 60%,#EBEDD9);border-bottom:1px solid var(--borda)}
+.eyebrow{color:var(--terra2);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.17}
+h1{font-size:clamp(40px,6vw,68px);letter-spacing:-.04em;margin:12px 0 17px}
+h2{font-size:clamp(27px,3.2vw,38px);margin:7px 0 14px}
+h3{font-size:clamp(20px,2.4vw,24px);margin:8px 0 10px}
+.hero p{max-width:750px;font-size:clamp(16px,1.8vw,19px);color:var(--muted);margin:0}
+.crumb{padding:18px 0 0;font-size:13px;color:var(--muted)}
+.crumb a{color:var(--terra2)}
+section.bloco{padding:38px 0 18px}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.heading h2{margin-bottom:3px}
+.count,.note{font-size:14px;color:var(--muted)}
+.entries,.editions{display:grid;gap:15px}
+.entry{display:grid;grid-template-columns:180px minmax(0,1fr);gap:20px;padding:17px;background:var(--papel);border:1px solid var(--borda);border-radius:15px;transition:border-color .2s,box-shadow .2s}
+.entry:hover{border-color:#C8A78C;box-shadow:var(--sombra)}
+.entry.no-image{grid-template-columns:1fr}
+.photo{display:block;align-self:start;overflow:hidden;border-radius:9px;background:#EEE7DC}
+.photo img{display:block;width:100%;height:146px;object-fit:cover;transition:transform .25s}
+.entry:hover img{transform:scale(1.035)}
+.tag{display:inline-block;padding:3px 11px;background:#EAECD9;color:var(--verde);border-radius:30px;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.entry h3 a{color:var(--terra2);text-decoration:none}
+.entry h3 a:hover{text-decoration:underline}
+.entry p{color:var(--muted);margin:0 0 10px}
+.meta{color:var(--muted);font-size:13px;margin:0 0 10px}
+.read{color:var(--terra2);font-size:14px;font-weight:800;text-underline-offset:4px}
+.year{display:flex;align-items:center;gap:14px;color:var(--terra2);font:700 30px Georgia,serif;margin:20px 0 15px}
+.year:after{content:'';height:1px;flex:1;background:var(--borda)}
+.actions{display:flex;justify-content:center;margin:22px 0 0}
+.more{border:1px solid var(--terra);border-radius:10px;background:var(--terra);color:#fff;font-weight:800;padding:12px 24px;min-height:47px}
+.more:hover{background:var(--terra2)}
+.filters{padding:21px;margin:0 0 24px;border:1px solid var(--borda);border-radius:15px;background:var(--papel);box-shadow:var(--sombra)}
+.filters h3{margin:0 0 15px;font-size:23px}
+.filter-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:14px}
+.field label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}
+.field input,.field select{display:block;width:100%;min-height:48px;padding:11px 13px;border:1px solid #CAB9A1;border-radius:9px;background:white;color:var(--texto)}
+.years{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:17px}
+.years strong{font-size:13px}
+.year-button{padding:7px 14px;border:1px solid var(--borda);border-radius:25px;background:white;color:var(--texto);font-size:14px;font-weight:700}
+.year-button[aria-pressed=true]{background:var(--terra);border-color:var(--terra);color:#fff}
+.edition{display:flex;align-items:center;gap:18px;padding:17px;background:var(--papel);border:1px solid var(--borda);border-radius:14px}
+.cover{flex:none;width:95px}
+.cover img{display:block;width:95px;aspect-ratio:1/1.414;object-fit:contain;background:#F6F1E8;border:1px solid var(--borda);border-radius:7px;box-shadow:0 4px 10px #2d180a1a}
+.edition-info{flex:1;min-width:0}
+.edition-info strong{font:700 20px/1.3 Georgia,serif}
+.edition-info p{font-size:14px;color:var(--muted);margin:6px 0}
+.pdf{display:inline-block;padding:10px 16px;background:var(--terra);color:white!important;border-radius:9px;text-decoration:none;font-weight:800;font-size:14px;white-space:nowrap}
+.pdf:hover{background:var(--terra2)}
+.empty{padding:30px 22px;background:var(--papel);border:1px dashed #C9BAA3;border-radius:14px;text-align:center;color:var(--muted)}
+.notice{margin-top:40px;padding:35px 0;background:var(--escuro);color:#E1E9D5}
+.notice h2{font-size:27px;color:white;margin:0 0 10px}
+.notice p{margin:0;max-width:850px}
+footer{padding:25px 0;background:var(--terra2);color:#F5E8D5;font-size:13px}
+@media(max-width:900px){
+ .menu{display:flex}
+ nav{display:none;position:absolute;top:100%;right:0;width:min(340px,100%);flex-direction:column;align-items:stretch;gap:0;padding:10px;background:var(--fundo);border:1px solid var(--borda);border-radius:0 0 13px 13px;box-shadow:var(--sombra)}
+ nav.open{display:flex}
+ nav a{padding:11px;border-radius:7px;font-size:15px}
+ nav a:hover{background:var(--creme)}
+}
+@media(max-width:650px){
+ .topo{min-height:74px}
+ .selo{width:40px;height:40px}
+ .marca strong{font-size:16px}
+ .marca small{font-size:9px}
+ .hero{padding:42px 0}
+ section.bloco{padding:30px 0 15px}
+ .filter-grid{grid-template-columns:1fr}
+ .filters{padding:17px}
+ .entry{grid-template-columns:108px minmax(0,1fr);gap:13px;padding:13px}
+ .photo img{height:114px}
+ .entry h3{font-size:20px}
+ .entry p{font-size:14px}
+ .edition{flex-wrap:wrap;gap:13px;padding:13px}
+ .cover,.cover img{width:80px}
+ .edition-info{flex:1 1 155px}
+ .pdf,.more{width:100%;text-align:center}
 }
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  background:var(--fundo);
-  color:var(--texto);
-  font:16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif;
-}
-
-a{color:inherit}
-button,input,select{font:inherit}
-button{cursor:pointer}
-
-:focus-visible{
-  outline:3px solid var(--verde);
-  outline-offset:3px;
-}
-
-.container{
-  width:min(1120px,calc(100% - 32px));
-  margin:auto;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:5;
-  background:var(--fundo);
-  border-bottom:1px solid var(--borda);
-}
-
-.topo{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  min-height:80px;
-}
-
-.marca{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-}
-
-.selo{
-  display:grid;
-  place-items:center;
-  background:var(--terra);
-  color:#fff;
-  border:3px double var(--creme);
-  border-radius:50%;
-  width:46px;
-  height:46px;
-  font:700 18px Georgia,serif;
-}
-
-.marca strong{
-  display:block;
-  font:700 19px Georgia,serif;
-}
-
-.marca small{
-  display:block;
-  color:var(--verde);
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px;
-}
-
-nav a{
-  text-decoration:none;
-  font-size:13px;
-  font-weight:750;
-}
-
-nav a:hover,
-nav a[aria-current]{
-  color:var(--terra);
-}
-
-.hero{
-  padding:64px 0;
-  background:linear-gradient(
-    120deg,
-    #F3E8D4,
-    var(--fundo) 60%,
-    #EBEDD9
-  );
-  border-bottom:1px solid var(--borda);
-}
-
-.rotulo{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--terra-esc);
-}
-
-h1,h2,h3{
-  font-family:Georgia,'Times New Roman',serif;
-  line-height:1.2;
-}
-
-h1{
-  font-size:clamp(40px,6vw,70px);
-  margin:10px 0 16px;
-  letter-spacing:-.04em;
-}
-
-h2{
-  font-size:clamp(26px,3vw,38px);
-  margin:8px 0 18px;
-}
-
-h3{
-  font-size:clamp(20px,2.4vw,25px);
-  margin:8px 0 10px;
-}
-
-.hero p{
-  color:var(--cinza);
-  max-width:720px;
-  font-size:18px;
-  margin:0;
-}
-
-.caminho{
-  padding-top:18px;
-  color:var(--cinza);
-  font-size:13px;
-}
-
-.caminho a{
-  color:var(--terra-esc);
-}
-
-section.bloco{
-  padding:36px 0;
-}
-
-.filtros,.cartao,.edicao{
-  background:var(--papel);
-  border:1px solid var(--borda);
-  border-radius:16px;
-}
-
-.filtros{
-  padding:24px;
-  box-shadow:0 12px 34px #2D180A0E;
-}
-
-.grade-filtros{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 220px;
-  gap:15px;
-}
-
-.campo label{
-  display:block;
-  font-weight:750;
-  font-size:13px;
-  margin-bottom:7px;
-}
-
-.campo input,
-.campo select{
-  width:100%;
-  min-height:48px;
-  padding:11px 13px;
-  background:#fff;
-  color:var(--texto);
-  border:1px solid #CAB9A1;
-  border-radius:9px;
-}
-
-.anos{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:20px;
-}
-
-.anos strong{
-  font-size:13px;
-  margin-right:4px;
-}
-
-.botao-ano{
-  padding:7px 15px;
-  border:1px solid var(--borda);
-  border-radius:30px;
-  background:#fff;
-  color:var(--texto);
-  font-weight:700;
-}
-
-.botao-ano:hover{
-  border-color:var(--terra);
-}
-
-.botao-ano[aria-pressed="true"]{
-  background:var(--terra);
-  border-color:var(--terra);
-  color:#fff;
-}
-
-.linha-titulo{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.linha-titulo h2{
-  margin-bottom:8px;
-}
-
-.contador,.nota{
-  color:var(--cinza);
-  font-size:14px;
-}
-
-.ano-titulo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin:20px 0 15px;
-  font:700 32px Georgia,serif;
-  color:var(--terra-esc);
-}
-
-.ano-titulo:after{
-  content:"";
-  height:1px;
-  flex:1;
-  background:var(--borda);
-}
-
-.lista{
-  display:grid;
-  gap:16px;
-}
-
-.cartao{
-  display:grid;
-  grid-template-columns:180px minmax(0,1fr);
-  gap:22px;
-  padding:18px;
-  transition:box-shadow .2s,border-color .2s;
-}
-
-.cartao:hover{
-  border-color:#C8A78C;
-  box-shadow:0 12px 28px #2D180A17;
-}
-
-.foto-link{
-  display:block;
-  overflow:hidden;
-  border-radius:10px;
-  background:#EAE4D8;
-  min-height:142px;
-  align-self:start;
-}
-
-.foto-link img{
-  display:block;
-  width:100%;
-  height:146px;
-  object-fit:cover;
-  transition:transform .3s;
-}
-
-.cartao:hover .foto-link img{
-  transform:scale(1.035);
-}
-
-.tag{
-  display:inline-block;
-  background:#EAECD9;
-  color:var(--verde);
-  padding:3px 11px;
-  border-radius:30px;
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-}
-
-.cartao h3 a{
-  color:var(--terra-esc);
-  text-decoration:none;
-}
-
-.cartao h3 a:hover{
-  text-decoration:underline;
-}
-
-.cartao p{
-  color:var(--cinza);
-  margin:0 0 10px;
-}
-
-.dados{
-  font-size:13px;
-  color:var(--cinza);
-  margin-bottom:7px;
-}
-
-.ler{
-  color:var(--terra-esc);
-  font-weight:800;
-  font-size:14px;
-  text-underline-offset:3px;
-}
-
-.edicoes{
-  display:grid;
-  gap:14px;
-}
-
-.edicao{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  padding:16px;
-}
-
-.capa{
-  flex:0 0 94px;
-}
-
-.capa img{
-  display:block;
-  width:94px;
-  aspect-ratio:1/1.414;
-  object-fit:contain;
-  background:#F6F1E8;
-  border:1px solid var(--borda);
-  border-radius:6px;
-}
-
-.edicao-info{
-  flex:1;
-  min-width:0;
-}
-
-.edicao-info strong{
-  font:700 21px Georgia,serif;
-}
-
-.edicao-info p{
-  margin:6px 0;
-  color:var(--cinza);
-  font-size:14px;
-}
-
-.pdf{
-  display:inline-block;
-  background:var(--terra);
-  color:#fff;
-  text-decoration:none;
-  padding:10px 16px;
-  border-radius:9px;
-  font-size:14px;
-  font-weight:800;
-}
-
-.pdf:hover{
-  background:var(--terra-esc);
-}
-
-.vazio{
-  background:var(--papel);
-  border:1px dashed #C9BAA3;
-  border-radius:14px;
-  text-align:center;
-  padding:30px;
-  color:var(--cinza);
-}
-
-.aviso{
-  background:#1E2F0F;
-  color:#E1E9D5;
-  padding:35px 0;
-}
-
-.aviso h2{
-  color:#fff;
-  font-size:27px;
-  margin:0 0 10px;
-}
-
-.aviso p{
-  max-width:850px;
-  margin:0;
-}
-
-footer{
-  background:var(--terra-esc);
-  color:#F5E8D5;
-  padding:25px 0;
-  font-size:13px;
-}
-
-@media(max-width:800px){
-  .topo{
-    align-items:flex-start;
-    flex-direction:column;
-    padding:14px 0;
-  }
-
-  nav{
-    gap:10px 18px;
-  }
-
-  .hero{
-    padding:40px 0;
-  }
-}
-
-@media(max-width:600px){
-  .grade-filtros{
-    grid-template-columns:1fr;
-  }
-
-  .filtros{
-    padding:18px;
-  }
-
-  .cartao{
-    grid-template-columns:105px minmax(0,1fr);
-    gap:13px;
-    padding:13px;
-  }
-
-  .foto-link{
-    min-height:100px;
-  }
-
-  .foto-link img{
-    height:112px;
-  }
-
-  .cartao h3{
-    font-size:20px;
-  }
-
-  .edicao{
-    flex-wrap:wrap;
-  }
-
-  .edicao-info{
-    flex:1 1 150px;
-  }
-
-  .pdf{
-    width:100%;
-    text-align:center;
-  }
-}
-
 @media(max-width:390px){
-  .cartao{
-    grid-template-columns:1fr;
-  }
-
-  .foto-link img{
-    height:180px;
-  }
+ .entry{grid-template-columns:1fr}
+ .photo img{height:185px}
 }
-
 @media(prefers-reduced-motion:reduce){
-  .cartao,
-  .foto-link img{
-    transition:none;
-  }
+ html{scroll-behavior:auto}
+ .entry,.photo img{transition:none}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="container topo">
-
-    <a class="marca" href="index.html"
-       aria-label="Início do Marajoara Digital">
-
-      <span class="selo">III</span>
-
-      <span>
-        <strong>Marajoara Digital</strong>
-        <small>Edifício Marajoara III</small>
-      </span>
-    </a>
-
-    <nav aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="jornal.html" aria-current="page">
-        Jornal Marajoara
-      </a>
-      <a href="index.html#agenda">Agenda e Eventos</a>
-      <a href="index.html#comunicados">Comunicados</a>
-      <a href="index.html#historia">Nossa História</a>
-    </nav>
-
-  </div>
+ <div class="container topo">
+  <a class="marca" href="index.html" aria-label="Marajoara Digital, início">
+   <span class="selo">III</span>
+   <span>
+    <strong>Marajoara Digital</strong>
+    <small>Edifício Marajoara III</small>
+   </span>
+  </a>
+  <button class="menu" id="menu" type="button" aria-label="Abrir menu" aria-controls="nav" aria-expanded="false">
+   <span></span><span></span><span></span>
+  </button>
+  <nav id="nav" aria-label="Navegação principal">
+   <a href="index.html">Início</a>
+   <a href="jornal.html" aria-current="page">Jornal Marajoara</a>
+   <a href="index.html#agenda">Agenda e Eventos</a>
+   <a href="index.html#comunicados">Comunicados</a>
+   <a href="index.html#historia">Nossa História</a>
+  </nav>
+ </div>
 </header>
 
 <main>
-
-<section class="hero">
+ <section class="hero">
   <div class="container">
-
-    <span class="rotulo">
-      Edições · Realizações · Memória
-    </span>
-
-    <h1>
-      Jornal
-      <span style="color:var(--terra)">
-        Marajoara.
-      </span>
-    </h1>
-
-    <p>
-      As novidades do edifício e a história de cada
-      realização, preservadas para a nossa comunidade.
-    </p>
-
+   <span class="eyebrow">Edições · Realizações · Memória</span>
+   <h1>Jornal <span style="color:var(--terra)">Marajoara.</span></h1>
+   <p>As novidades do edifício, organizadas para que cada realização tenha sua história. Um arquivo que cresce com a nossa comunidade.</p>
   </div>
-</section>
+ </section>
 
-<div class="container caminho">
-  <a href="index.html">Início</a>
-  › Jornal Marajoara
-</div>
+ <div class="container crumb">
+  <a href="index.html">Início</a> › Jornal Marajoara
+ </div>
 
-<section class="bloco container"
-         aria-labelledby="filtros-titulo">
-
-  <div class="filtros">
-
-    <h2 id="filtros-titulo">
-      Encontre uma matéria
-    </h2>
-
-    <div class="grade-filtros">
-
-      <div class="campo">
-        <label for="pesquisa">
-          Pesquisar no histórico
-        </label>
-
-        <input
-          type="search"
-          id="pesquisa"
-          placeholder="Ex.: portão, pintura, outubro de 2026"
-          autocomplete="off">
-      </div>
-
-      <div class="campo">
-        <label for="categoria">Categoria</label>
-
-        <select id="categoria">
-          <option value="todas">
-            Todas as categorias
-          </option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="anos" id="anos">
-      <strong>Ano:</strong>
-    </div>
-
-  </div>
-</section>
-
-<section class="bloco container"
-         aria-labelledby="materias-titulo">
-
-  <div class="linha-titulo">
-
-    <div>
-      <span class="rotulo">
-        Arquivo cronológico
-      </span>
-
-      <h2 id="materias-titulo">
-        Matérias e realizações
-      </h2>
-    </div>
-
-    <span class="contador"
-          id="contador"
-          role="status"
-          aria-live="polite">
-      Carregando…
-    </span>
-
+ <section class="bloco container" id="materias" aria-labelledby="materias-title">
+  <div class="heading">
+   <div>
+    <span class="eyebrow">Notícias e realizações</span>
+    <h2 id="materias-title">Matérias em destaque</h2>
+   </div>
+   <span class="count" id="count" role="status" aria-live="polite">Carregando…</span>
   </div>
 
-  <div id="materias" aria-live="polite"></div>
+  <div class="filters" id="filters" hidden>
+   <h3>Pesquise no arquivo</h3>
+   <div class="filter-grid">
+    <div class="field">
+     <label for="search">Pesquisar por assunto ou data</label>
+     <input type="search" id="search" placeholder="Ex.: portão, pintura, outubro" autocomplete="off">
+    </div>
+    <div class="field">
+     <label for="category">Categoria</label>
+     <select id="category">
+      <option value="todas">Todas as categorias</option>
+     </select>
+    </div>
+   </div>
+   <div class="years" id="years"><strong>Ano:</strong></div>
+  </div>
 
-</section>
+  <div class="entries" id="entries" aria-live="polite">
+   <div class="empty">Carregando matérias…</div>
+  </div>
+  <div class="actions">
+   <button class="more" id="more-articles" type="button" aria-expanded="false" aria-controls="entries" hidden>
+    Ver todas as matérias →
+   </button>
+  </div>
+ </section>
 
-<section class="bloco container"
-         id="edicoes"
-         aria-labelledby="edicoes-titulo">
+ <section class="bloco container" id="edicoes" aria-labelledby="editions-title">
+  <div class="heading">
+   <div>
+    <span class="eyebrow">Publicações originais</span>
+    <h2 id="editions-title">Últimas edições</h2>
+   </div>
+   <span class="note">Até 3 edições recentes</span>
+  </div>
+  <div class="editions" id="editions">
+   <div class="empty">Carregando edições…</div>
+  </div>
+  <div class="actions">
+   <button class="more" id="more-editions" type="button" aria-expanded="false" aria-controls="editions" hidden>
+    Ver todas as edições →
+   </button>
+  </div>
+ </section>
 
-  <span class="rotulo">
-    Publicações originais
-  </span>
-
-  <h2 id="edicoes-titulo">
-    Edições do jornal
-  </h2>
-
-  <p class="nota">
-    Veja as capas e os PDFs das edições autorizadas.
-  </p>
-
-  <div class="edicoes" id="lista-edicoes"></div>
-
-</section>
-
-<section class="aviso">
+ <section class="notice">
   <div class="container">
-
-    <h2>
-      Memórias cuidadas, informações conferidas.
-    </h2>
-
-    <p>
-      A data de uma realização pode ser diferente
-      da data de publicação. As informações são
-      exibidas conforme os registros confirmados
-      e autorizados.
-    </p>
-
+   <h2>Memórias cuidadas, informações conferidas.</h2>
+   <p>A data de uma realização pode ser diferente da publicação. Os registros são apresentados conforme as informações confirmadas e autorizadas para divulgação.</p>
   </div>
-</section>
-
+ </section>
 </main>
 
 <footer>
-  <div class="container">
-    © <span id="ano-atual">2026</span>
-    Marajoara Digital · Edifício Marajoara III
-  </div>
+ <div class="container">
+  © <span id="ano-atual">2026</span> Marajoara Digital · Edifício Marajoara III
+ </div>
 </footer>
 
 <script>
 'use strict';
 
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
+$('ano-atual').textContent=new Date().getFullYear();
 
-$('ano-atual').textContent = new Date().getFullYear();
-
-const estado = {
-  dados: null,
-  ano: 'todos',
-  categoria: 'todas',
-  busca: ''
+const state={
+ data:null,
+ allArticles:false,
+ allEditions:false,
+ year:'todos',
+ category:'todas',
+ search:''
 };
 
-/*
-  Fotografias da edição 01.
-
-  Estes caminhos funcionam como alternativa
-  enquanto o jornal.json ainda não contém
-  as imagens cadastradas.
-
-  As duas primeiras fotos utilizam os nomes
-  encontrados anteriormente no GitHub.
-*/
-
-const nomesFotos = {
-  'iluminacao-do-campo-2026':
-    '01-Iluminação do campo.jpg',
-
-  'pintura-do-postinho-2026':
-    '01-Pintura do postinho.jpg',
-
-  'desobstrucao-de-esgoto-2026':
-    '01-desobstrucao-de-esgoto.jpg',
-
-  'reparo-na-sacada-2026':
-    '01-reparo-na-sacada.jpg',
-
-  'reparo-de-infiltracao-2026':
-    '01-reparo-de-infiltracao.jpg',
-
-  'nova-porta-de-entrada-2026':
-    '01-nova-porta-de-entrada.jpg',
-
-  'troca-dos-tubos-2026':
-    '01-troca-dos-tubos.jpg',
-
-  'corte-de-grama-2026':
-    '01-corte-de-grama.jpg',
-
-  'dedetizacao-2026':
-    '01-dedetizacao.jpg',
-
-  'troca-do-portao-2026':
-    '01-troca-do-portao.jpg'
+const photoNames={
+ 'iluminacao-do-campo-2026':'01-Iluminação do campo.jpg',
+ 'pintura-do-postinho-2026':'01-Pintura do postinho.jpg',
+ 'desobstrucao-de-esgoto-2026':'01-desobstrucao-de-esgoto.jpg',
+ 'reparo-na-sacada-2026':'01-reparo-na-sacada.jpg',
+ 'reparo-de-infiltracao-2026':'01-reparo-de-infiltracao.jpg',
+ 'nova-porta-de-entrada-2026':'01-nova-porta-de-entrada.jpg',
+ 'troca-dos-tubos-2026':'01-troca-dos-tubos.jpg',
+ 'corte-de-grama-2026':'01-corte-de-grama.jpg',
+ 'dedetizacao-2026':'01-dedetizacao.jpg',
+ 'troca-do-portao-2026':'01-troca-do-portao.jpg'
 };
 
-function el(tag, classe, texto) {
-  const n = document.createElement(tag);
-
-  if (classe) {
-    n.className = classe;
-  }
-
-  if (texto !== undefined) {
-    n.textContent = String(texto);
-  }
-
-  return n;
+function el(tag,cls,txt){
+ const e=document.createElement(tag);
+ if(cls)e.className=cls;
+ if(txt!==undefined)e.textContent=String(txt);
+ return e;
 }
 
-function textoNormal(x) {
-  return String(x ?? '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
+function clean(x){
+ return String(x??'').normalize('NFD')
+  .replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
 
-function partesData(x) {
-  if (
-    typeof x !== 'string' ||
-    !/^\d{4}(-\d\d)?(-\d\d)?$/.test(x)
-  ) {
-    return null;
-  }
-
-  const p = x.split('-').map(Number);
-
-  if (
-    p.length > 1 &&
-    (p[1] < 1 || p[1] > 12)
-  ) {
-    return null;
-  }
-
-  return p;
+function dateParts(x){
+ if(typeof x!=='string'||!/^\d{4}(-\d{2})?(-\d{2})?$/.test(x))return null;
+ const p=x.split('-').map(Number);
+ if(p.length>1&&(p[1]<1||p[1]>12))return null;
+ if(p.length===3){
+  const d=new Date(Date.UTC(p[0],p[1]-1,p[2]));
+  if(d.getUTCFullYear()!==p[0]||
+     d.getUTCMonth()!==p[1]-1||
+     d.getUTCDate()!==p[2])return null;
+ }
+ return p;
 }
 
-function dataPt(x) {
-  const p = partesData(x);
-
-  if (!p) {
-    return 'Data a confirmar';
-  }
-
-  const meses = [
-    'janeiro',
-    'fevereiro',
-    'março',
-    'abril',
-    'maio',
-    'junho',
-    'julho',
-    'agosto',
-    'setembro',
-    'outubro',
-    'novembro',
-    'dezembro'
-  ];
-
-  if (p.length === 1) {
-    return String(p[0]);
-  }
-
-  if (p.length === 2) {
-    return `${meses[p[1]-1]} de ${p[0]}`;
-  }
-
-  return `${p[2]} de ${meses[p[1]-1]} de ${p[0]}`;
+function dateBR(x){
+ const p=dateParts(x);
+ if(!p)return 'Data a confirmar';
+ const meses=[
+  'janeiro','fevereiro','março','abril',
+  'maio','junho','julho','agosto',
+  'setembro','outubro','novembro','dezembro'
+ ];
+ return p.length===1?String(p[0]):
+  p.length===2?meses[p[1]-1]+' de '+p[0]:
+  p[2]+' de '+meses[p[1]-1]+' de '+p[0];
 }
 
-function anoMateria(m) {
-  return (
-    Number(m.ano_referencia) ||
-    partesData(m.data_realizacao)?.[0] ||
-    partesData(m.data_publicacao)?.[0] ||
-    0
+function yearOf(m){
+ const n=Number(m.ano_referencia);
+ return Number.isInteger(n)&&n>=1900&&n<=2200
+  ?n
+  :dateParts(m.data_realizacao)?.[0]||
+   dateParts(m.data_publicacao)?.[0]||0;
+}
+
+function safePath(x){
+ if(typeof x!=='string'||!x.trim())return null;
+ const s=x.trim();
+ return s.startsWith('/')||
+  s.startsWith('#')||
+  s.includes('\\')||
+  s.includes('..')||
+  s.includes('//')||
+  /^[a-z][a-z\d+.-]*:/i.test(s)?null:s;
+}
+
+function photoOf(m){
+ const im=Array.isArray(m.imagens)
+  ?m.imagens.find(x=>x&&safePath(x.arquivo))
+  :null;
+ return im?safePath(im.arquivo):
+  photoNames[m.id]?'assets/edicao-01/'+photoNames[m.id]:null;
+}
+
+function empty(message){
+ return el('div','empty',message);
+}
+
+// Menu responsivo
+const menu=$('menu'),nav=$('nav');
+
+function openMenu(open){
+ nav.classList.toggle('open',open);
+ menu.setAttribute('aria-expanded',String(open));
+ menu.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+}
+
+menu.addEventListener('click',()=>{
+ openMenu(menu.getAttribute('aria-expanded')!=='true');
+});
+nav.addEventListener('click',e=>{
+ if(e.target.closest('a'))openMenu(false);
+});
+document.addEventListener('click',e=>{
+ if(!nav.contains(e.target)&&!menu.contains(e.target))openMenu(false);
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape')openMenu(false);
+});
+
+function sortedArticles(){
+ return state.data.materias
+  .map((m,i)=>({...m,_index:i}))
+  .sort((a,b)=>
+   String(b.data_publicacao||'')
+    .localeCompare(String(a.data_publicacao||''))||
+   b._index-a._index
   );
 }
 
-function caminhoSeguro(s) {
-  if (
-    typeof s !== 'string' ||
-    !s.trim() ||
-    s.includes('..') ||
-    s.includes('\\') ||
-    s.startsWith('/') ||
-    /^[a-z][\w+.-]*:/i.test(s)
-  ) {
-    return null;
-  }
+function matches(m){
+ if(state.year!=='todos'&&
+    String(yearOf(m))!==state.year)return false;
+ if(state.category!=='todas'&&
+    m.categoria!==state.category)return false;
 
-  return s.trim();
+ const content=[
+  m.titulo,m.resumo,m.categoria,
+  m.data_publicacao,dateBR(m.data_publicacao),
+  m.data_realizacao,dateBR(m.data_realizacao),
+  ...(Array.isArray(m.conteudo)?m.conteudo:[])
+ ].join(' ');
+
+ return clean(content).includes(clean(state.search.trim()));
 }
 
-function caminhoFoto(m) {
-  const cadastrada = Array.isArray(m.imagens)
-    ? m.imagens.find(
-        im => im && caminhoSeguro(im.arquivo)
-      )
-    : null;
+function articleCard(m){
+ const card=el('article','entry');
+ const url='materia.html?id='+encodeURIComponent(m.id||'');
+ const path=photoOf(m);
 
-  if (cadastrada) {
-    return caminhoSeguro(cadastrada.arquivo);
-  }
+ if(path){
+  const link=el('a','photo');
+  link.href=url;
+  link.setAttribute('aria-label','Abrir '+(m.titulo||'matéria'));
 
-  if (nomesFotos[m.id]) {
-    return `assets/edicao-01/${nomesFotos[m.id]}`;
-  }
+  const img=el('img');
+  img.src=path;
+  img.alt=(m.imagens?.[0]?.alt)||m.titulo||'Foto da matéria';
+  img.loading='lazy';
+  img.decoding='async';
 
-  return null;
-}
-
-function vazio(msg) {
-  return el('div', 'vazio', msg);
-}
-
-function renderAnos() {
-  const caixa = $('anos');
-
-  caixa.replaceChildren(
-    el('strong', '', 'Ano:')
-  );
-
-  const anos = new Set([
-    2026,
-    ...(estado.dados.anos_iniciais || [])
-  ]);
-
-  estado.dados.materias.forEach(m => {
-    if (anoMateria(m)) {
-      anos.add(anoMateria(m));
-    }
+  img.addEventListener('error',()=>{
+   link.remove();
+   card.classList.add('no-image');
   });
 
-  const opcoes = [
-    ['todos', 'Todos os anos'],
-    ...[...anos]
-      .sort((a,b) => b-a)
-      .map(a => [String(a), String(a)])
-  ];
+  link.append(img);
+  card.append(link);
+ }else{
+  card.classList.add('no-image');
+ }
 
-  opcoes.forEach(([valor, titulo]) => {
-    const b = el(
-      'button',
-      'botao-ano',
-      titulo
-    );
+ const info=el('div');
+ info.append(el('span','tag',m.categoria||'Notícia'));
 
-    b.type = 'button';
+ const h=el('h3');
+ const a=el('a','',m.titulo||'Matéria');
+ a.href=url;
+ h.append(a);
+ info.append(h);
 
-    b.setAttribute(
-      'aria-pressed',
-      String(estado.ano === valor)
-    );
+ if(m.resumo)info.append(el('p','',m.resumo));
 
-    b.onclick = () => {
-      estado.ano = valor;
+ info.append(el('div','meta',
+  'Realização: '+dateBR(m.data_realizacao)+
+  ' · Publicação: '+dateBR(m.data_publicacao)
+ ));
 
-      renderAnos();
-      renderMaterias();
-      renderEdicoes();
-    };
+ const read=el('a','read','Leia a matéria →');
+ read.href=url;
+ info.append(read);
+ card.append(info);
 
-    caixa.append(b);
-  });
+ return card;
 }
 
-function renderCategorias() {
-  const select = $('categoria');
+function renderYears(){
+ const host=$('years');
+ host.replaceChildren(el('strong','','Ano:'));
 
-  select.replaceChildren();
+ const years=new Set(
+  (state.data.anos_iniciais||[])
+   .map(Number).filter(Number.isInteger)
+ );
 
-  const primeira = el(
-    'option',
-    '',
-    'Todas as categorias'
-  );
+ state.data.materias.forEach(m=>{
+  if(yearOf(m))years.add(yearOf(m));
+ });
 
-  primeira.value = 'todas';
+ const options=[
+  ['todos','Todos os anos'],
+  ...[...years].sort((a,b)=>b-a)
+   .map(x=>[String(x),String(x)])
+ ];
 
-  select.append(primeira);
-
-  const categorias = [
-    ...new Set(
-      estado.dados.materias
-        .map(m => m.categoria)
-        .filter(Boolean)
-    )
-  ].sort();
-
-  categorias.forEach(c => {
-    const o = el('option', '', c);
-
-    o.value = c;
-
-    select.append(o);
+ options.forEach(([value,label])=>{
+  const b=el('button','year-button',label);
+  b.type='button';
+  b.setAttribute('aria-pressed',String(state.year===value));
+  b.addEventListener('click',()=>{
+   state.year=value;
+   renderYears();
+   renderArticles();
   });
+  host.append(b);
+ });
 }
 
-function renderMaterias() {
-  const host = $('materias');
+function renderCategories(){
+ const s=$('category');
+ s.replaceChildren();
 
-  host.replaceChildren();
+ const base=el('option','','Todas as categorias');
+ base.value='todas';
+ s.append(base);
 
-  const lista = estado.dados.materias
-    .filter(m => {
-
-      if (
-        estado.ano !== 'todos' &&
-        String(anoMateria(m)) !== estado.ano
-      ) {
-        return false;
-      }
-
-      if (
-        estado.categoria !== 'todas' &&
-        m.categoria !== estado.categoria
-      ) {
-        return false;
-      }
-
-      const texto = [
-        m.titulo,
-        m.resumo,
-        m.categoria,
-        m.data_realizacao,
-        dataPt(m.data_realizacao),
-        m.data_publicacao,
-        dataPt(m.data_publicacao),
-        ...(
-          Array.isArray(m.conteudo)
-            ? m.conteudo
-            : []
-        )
-      ].join(' ');
-
-      return textoNormal(texto)
-        .includes(textoNormal(estado.busca));
-    })
-    .sort((a,b) => {
-      const da = String(
-        a.data_realizacao ||
-        a.data_publicacao ||
-        ''
-      );
-
-      const db = String(
-        b.data_realizacao ||
-        b.data_publicacao ||
-        ''
-      );
-
-      return (
-        db.localeCompare(da) ||
-        String(a.titulo)
-          .localeCompare(String(b.titulo), 'pt-BR')
-      );
-    });
-
-  $('contador').textContent =
-    `${lista.length} ${
-      lista.length === 1
-        ? 'matéria encontrada'
-        : 'matérias encontradas'
-    }`;
-
-  if (!lista.length) {
-    host.append(
-      vazio(
-        'Nenhuma matéria encontrada. ' +
-        'Tente outro assunto, ano ou categoria.'
-      )
-    );
-
-    return;
-  }
-
-  const grupos = new Map();
-
-  lista.forEach(m => {
-    const ano = anoMateria(m) || 'A confirmar';
-
-    if (!grupos.has(ano)) {
-      grupos.set(ano, []);
-    }
-
-    grupos.get(ano).push(m);
-  });
-
-  for (const [ano, artigos] of grupos) {
-    const h = el('h3', 'ano-titulo', ano);
-
-    const grid = el('div', 'lista');
-
-    host.append(h, grid);
-
-    artigos.forEach(m => {
-      const url =
-        'materia.html?id=' +
-        encodeURIComponent(m.id || '');
-
-      const card = el('article', 'cartao');
-
-      const foto = caminhoFoto(m);
-
-      if (foto) {
-        const link = el('a', 'foto-link');
-
-        link.href = url;
-
-        link.setAttribute(
-          'aria-label',
-          'Abrir ' + (m.titulo || 'matéria')
-        );
-
-        const img = el('img');
-
-        img.src = foto;
-
-        img.alt =
-          (
-            Array.isArray(m.imagens) &&
-            m.imagens[0]?.alt
-          ) ||
-          m.titulo ||
-          'Fotografia da matéria';
-
-        img.loading = 'lazy';
-        img.decoding = 'async';
-
-        img.onerror = () => {
-          link.remove();
-          card.style.gridTemplateColumns = '1fr';
-        };
-
-        link.append(img);
-        card.append(link);
-
-      } else {
-        card.style.gridTemplateColumns = '1fr';
-      }
-
-      const info = el('div');
-
-      info.append(
-        el(
-          'span',
-          'tag',
-          m.categoria || 'Notícia'
-        )
-      );
-
-      const titulo = el('h3');
-
-      const a = el(
-        'a',
-        '',
-        m.titulo || 'Matéria'
-      );
-
-      a.href = url;
-
-      titulo.append(a);
-
-      info.append(titulo);
-
-      if (m.resumo) {
-        info.append(
-          el('p', '', m.resumo)
-        );
-      }
-
-      info.append(
-        el(
-          'div',
-          'dados',
-          'Realização: ' +
-          dataPt(m.data_realizacao) +
-          ' · Publicação: ' +
-          dataPt(m.data_publicacao)
-        )
-      );
-
-      const ler = el(
-        'a',
-        'ler',
-        'Leia a matéria →'
-      );
-
-      ler.href = url;
-
-      info.append(ler);
-
-      card.append(info);
-
-      grid.append(card);
-    });
-  }
-}
-
-function renderEdicoes() {
-  const host = $('lista-edicoes');
-
-  host.replaceChildren();
-
-  const lista = (
-    estado.dados.edicoes || []
+ const categories=[
+  ...new Set(
+   state.data.materias.map(m=>m.categoria).filter(Boolean)
   )
-    .filter(e =>
-      estado.ano === 'todos' ||
-      String(
-        partesData(e.data_publicacao)?.[0]
-      ) === estado.ano
-    )
-    .sort((a,b) =>
-      String(b.data_publicacao)
-        .localeCompare(
-          String(a.data_publicacao)
-        )
-    );
+ ].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 
-  if (!lista.length) {
-    host.append(
-      vazio(
-        'Ainda não há edições publicadas ' +
-        'para esse ano.'
-      )
-    );
+ categories.forEach(x=>{
+  const o=el('option','',x);
+  o.value=x;
+  s.append(o);
+ });
+}
 
-    return;
-  }
+function renderArticles(){
+ const host=$('entries');
+ host.replaceChildren();
 
-  lista.forEach(e => {
-    const box = el('article', 'edicao');
+ $('filters').hidden=!state.allArticles;
+ $('materias-title').textContent=state.allArticles
+  ?'Arquivo de matérias':'Matérias em destaque';
 
-    const pdf = caminhoSeguro(e.arquivo);
-    const capa = caminhoSeguro(e.imagem);
+ const all=sortedArticles();
+ const visible=state.allArticles
+  ?all.filter(matches):all.slice(0,3);
 
-    if (capa) {
-      const a = el(
-        pdf ? 'a' : 'div',
-        'capa'
-      );
+ $('count').textContent=state.allArticles
+  ?(visible.length===1
+    ?'1 matéria encontrada'
+    :visible.length+' matérias encontradas')
+  :(Math.min(all.length,3)+' de '+all.length+' matérias');
 
-      if (pdf) {
-        a.href = pdf;
-        a.target = '_blank';
-        a.rel = 'noopener';
-      }
+ if(!visible.length){
+  host.append(empty(
+   'Nenhuma matéria encontrada. Tente outra busca ou categoria.'
+  ));
+ }else if(state.allArticles){
+  let lastYear=null,group=null;
 
-      const img = el('img');
+  visible.forEach(m=>{
+   const yr=yearOf(m)||'A confirmar';
 
-      img.src = capa;
-
-      img.alt =
-        'Capa de ' +
-        (e.titulo || 'Jornal Marajoara');
-
-      img.loading = 'lazy';
-
-      img.onerror = () => a.remove();
-
-      a.append(img);
-
-      box.append(a);
-    }
-
-    const info = el(
-      'div',
-      'edicao-info'
-    );
-
-    info.append(
-      el(
-        'strong',
-        '',
-        e.titulo || 'Edição ' + e.numero
-      )
-    );
-
-    info.append(
-      el(
-        'p',
-        '',
-        'Publicação: ' +
-        dataPt(e.data_publicacao) +
-        (
-          e.descricao
-            ? ' · ' + e.descricao
-            : ''
-        )
-      )
-    );
-
-    box.append(info);
-
-    if (pdf) {
-      const a = el(
-        'a',
-        'pdf',
-        'Abrir PDF ↗'
-      );
-
-      a.href = pdf;
-      a.target = '_blank';
-      a.rel = 'noopener';
-
-      box.append(a);
-    }
-
-    host.append(box);
+   if(yr!==lastYear){
+    host.append(el('h3','year',yr));
+    group=el('div','entries');
+    host.append(group);
+    lastYear=yr;
+   }
+   group.append(articleCard(m));
   });
+ }else{
+  visible.forEach(m=>host.append(articleCard(m)));
+ }
+
+ const b=$('more-articles');
+ b.hidden=all.length<=3;
+ b.textContent=state.allArticles
+  ?'Mostrar apenas 3 matérias ↑'
+  :'Ver todas as matérias →';
+ b.setAttribute('aria-expanded',String(state.allArticles));
 }
 
-async function iniciar() {
-  try {
-    const res = await fetch(
-      'jornal.json',
-      {
-        cache: 'no-cache'
-      }
-    );
+function renderEditions(){
+ const host=$('editions');
+ host.replaceChildren();
 
-    if (!res.ok) {
-      throw Error('HTTP ' + res.status);
-    }
+ const all=[...(state.data.edicoes||[])].sort((a,b)=>
+  String(b.data_publicacao||'')
+   .localeCompare(String(a.data_publicacao||''))||
+  Number(b.numero||0)-Number(a.numero||0)
+ );
 
-    const dados = await res.json();
+ const visible=state.allEditions?all:all.slice(0,3);
 
-    if (
-      !Array.isArray(dados.materias) ||
-      !Array.isArray(dados.edicoes)
-    ) {
-      throw Error('Formato inesperado');
-    }
+ $('editions-title').textContent=state.allEditions
+  ?'Todas as edições':'Últimas edições';
 
-    estado.dados = dados;
+ if(!visible.length){
+  host.append(empty('Nenhuma edição publicada até o momento.'));
+ }
 
-    renderAnos();
-    renderCategorias();
-    renderMaterias();
-    renderEdicoes();
+ visible.forEach(e=>{
+  const card=el('article','edition');
+  const pdf=safePath(e.arquivo);
+  const cover=safePath(e.imagem);
 
-    $('pesquisa').addEventListener(
-      'input',
-      e => {
-        estado.busca = e.target.value;
-        renderMaterias();
-      }
-    );
+  if(cover){
+   const a=el(pdf?'a':'div','cover');
+   if(pdf){
+    a.href=pdf;
+    a.target='_blank';
+    a.rel='noopener';
+    a.setAttribute('aria-label','Abrir PDF de '+e.titulo);
+   }
 
-    $('categoria').addEventListener(
-      'change',
-      e => {
-        estado.categoria = e.target.value;
-        renderMaterias();
-      }
-    );
+   const img=el('img');
+   img.src=cover;
+   img.alt='Capa de '+(e.titulo||'Jornal Marajoara');
+   img.loading='lazy';
+   img.addEventListener('error',()=>a.remove());
 
-  } catch (erro) {
-    $('materias').replaceChildren(
-      vazio(
-        'Não foi possível carregar as matérias. ' +
-        'Confira se jornal.json está publicado ' +
-        'na mesma pasta.'
-      )
-    );
-
-    $('contador').textContent = '';
-
-    $('lista-edicoes').replaceChildren(
-      vazio('Edições indisponíveis.')
-    );
-
-    console.error(erro);
+   a.append(img);
+   card.append(a);
   }
+
+  const info=el('div','edition-info');
+  info.append(el('strong','',
+   e.titulo||'Edição '+e.numero
+  ));
+  info.append(el('p','',
+   'Publicado em '+dateBR(e.data_publicacao)+
+   (e.descricao?' · '+e.descricao:'')
+  ));
+  card.append(info);
+
+  if(pdf){
+   const a=el('a','pdf','Abrir PDF ↗');
+   a.href=pdf;
+   a.target='_blank';
+   a.rel='noopener';
+   card.append(a);
+  }
+
+  host.append(card);
+ });
+
+ const b=$('more-editions');
+ b.hidden=all.length<=3;
+ b.textContent=state.allEditions
+  ?'Mostrar últimas 3 edições ↑'
+  :'Ver todas as edições →';
+ b.setAttribute('aria-expanded',String(state.allEditions));
 }
 
-iniciar();
-</script>
+$('more-articles').addEventListener('click',()=>{
+ state.allArticles=!state.allArticles;
 
+ if(!state.allArticles){
+  state.year='todos';
+  state.category='todas';
+  state.search='';
+  $('search').value='';
+  $('category').value='todas';
+  renderYears();
+ }
+
+ renderArticles();
+
+ if(!state.allArticles){
+  $('materias').scrollIntoView({
+   behavior:'smooth',block:'start'
+  });
+ }
+});
+
+$('more-editions').addEventListener('click',()=>{
+ state.allEditions=!state.allEditions;
+ renderEditions();
+
+ if(!state.allEditions){
+  $('edicoes').scrollIntoView({
+   behavior:'smooth',block:'start'
+  });
+ }
+});
+
+$('search').addEventListener('input',e=>{
+ state.search=e.target.value;
+ renderArticles();
+});
+
+$('category').addEventListener('change',e=>{
+ state.category=e.target.value;
+ renderArticles();
+});
+
+(async()=>{
+ try{
+  const res=await fetch('jornal.json',{cache:'no-cache'});
+  if(!res.ok)throw Error('HTTP '+res.status);
+
+  const data=await res.json();
+
+  if(!Array.isArray(data.materias)||
+     !Array.isArray(data.edicoes)){
+   throw Error('Dados incompletos');
+  }
+
+  state.data=data;
+  renderYears();
+  renderCategories();
+  renderArticles();
+  renderEditions();
+ }catch(err){
+  $('entries').replaceChildren(empty(
+   'Não foi possível carregar o Jornal. Confira jornal.json.'
+  ));
+  $('editions').replaceChildren(empty(
+   'Edições indisponíveis.'
+  ));
+  $('count').textContent='';
+  console.error('Jornal Marajoara:',err);
+ }
+})();
+</script>
 </body>
 </html>
