@@ -1,150 +1,866 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#AA3716">
-  <meta name="description" content="Conheça o Marajoara Digital, um projeto de memória, informação e comunicação para o Edifício Marajoara III.">
+  <meta name="description" content="Marajoara Digital: jornal, agenda, comunicados e memória do Edifício Marajoara III.">
   <title>Marajoara Digital | Edifício Marajoara III</title>
+
   <style>
     :root {
       --terracota: #AA3716;
-      --terracota-dark: #7D2A13;
-      --cream: #F2E3C7;
-      --paper: #FBF7EF;
-      --ink: #2D180A;
-      --green: #4D5F2D;
-      --deep-green: #1E2F0F;
-      --olive: #868D4F;
-      --line: #E5D7BF;
-      --shadow: 0 16px 40px rgba(45,24,10,.12);
+      --terracota-escuro: #7D2A13;
+      --creme: #F2E3C7;
+      --papel: #FBF7EF;
+      --verde: #4D5F2D;
+      --verde-escuro: #1E2F0F;
+      --texto: #2D180A;
+      --borda: #E5D7BF;
     }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
-    a { color: inherit; }
-    a:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
-    header { background: var(--paper); border-bottom: 1px solid var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-block: 15px; }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .brand-mark { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--terracota); color: white; font: bold 18px/1 Georgia,serif; border: 3px double var(--cream); }
-    .brand-text { display: grid; line-height: 1.18; }
-    .brand-text strong { font: bold 19px Georgia,serif; letter-spacing: .025em; }
-    .brand-text small { margin-top: 4px; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--green); }
-    nav { display: flex; gap: 23px; align-items: center; flex-wrap: wrap; }
-    nav a { font-size: 14px; font-weight: 650; text-decoration: none; }
-    nav a:hover { color: var(--terracota); }
-    .hero { position: relative; overflow: hidden; background: linear-gradient(140deg, var(--cream), #FBF5E9 60%, #E9EACF); }
-    .hero::before { content: ""; position: absolute; width: 470px; height: 470px; border: 1px solid rgba(77,95,45,.16); border-radius: 50%; right: -160px; top: -190px; box-shadow: 0 0 0 58px rgba(77,95,45,.06), 0 0 0 125px rgba(170,55,22,.025); }
-    .hero-inner { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: 40px; align-items: center; padding-block: 96px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; background: rgba(77,95,45,.11); border: 1px solid rgba(77,95,45,.2); border-radius: 40px; color: var(--deep-green); text-transform: uppercase; font-size: 12px; letter-spacing: .11em; font-weight: 750; }
-    h1, h2, h3 { font-family: Georgia,"Times New Roman",serif; line-height: 1.12; }
-    h1 { font-size: clamp(43px, 5.9vw, 80px); letter-spacing: -.055em; margin: 24px 0; }
-    h1 em { color: var(--terracota); font-style: normal; }
-    .lead { max-width: 650px; font-size: clamp(17px,1.8vw,20px); color: #513C2E; }
-    .actions { display:flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .button { text-decoration: none; display: inline-block; padding: 13px 23px; border-radius: 7px; font-weight: 720; transition: transform .2s; }
-    .button:hover { transform: translateY(-2px); }
-    .button.primary { background: var(--terracota); color: white; }
-    .button.secondary { border: 1px solid var(--terracota); color: var(--terracota-dark); background: rgba(255,255,255,.45); }
-    .hero-art { min-height: 370px; display: grid; place-items: center; }
-    .seal { width: min(100%,355px); aspect-ratio: 1; border-radius: 50%; background: var(--green); display: grid; place-items: center; box-shadow: var(--shadow); border: 12px solid #EEE5CE; outline: 2px solid var(--olive); color: var(--cream); }
-    .seal-inner { text-align: center; border: 1px solid rgba(242,227,199,.65); width: 82%; aspect-ratio: 1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .seal svg { width: 84px; height: 98px; margin-bottom: 10px; }
-    .seal b { font: bold 24px Georgia,serif; letter-spacing: .13em; }
-    .seal span { font: 12px Georgia,serif; letter-spacing: .23em; margin-top: 7px; }
-    section.content { padding-block: 80px; }
-    .section-title { max-width: 700px; }
-    .kicker { color: var(--terracota-dark); font-size: 12px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
-    h2 { font-size: clamp(32px,3.9vw,48px); margin: 12px 0 16px; }
-    .section-title p { color: #5D4D40; font-size: 17px; }
-    .cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 35px; }
-    .card { background: #FFFDF9; border: 1px solid var(--line); border-radius: 13px; padding: 31px; box-shadow: 0 6px 18px rgba(45,24,10,.035); }
-    .card-icon { display: grid; place-items: center; height: 51px; width: 51px; font: bold 25px Georgia,serif; color: var(--terracota); background: #F7E9DA; border-radius: 12px; }
-    .card h3 { margin: 24px 0 9px; font-size: 25px; }
-    .card p { color: #5D4D40; margin-bottom: 0; }
-    .status { background: var(--deep-green); color: var(--paper); }
-    .status-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 35px; padding-block: 55px; }
-    .status .kicker { color: #D9DFA7; }
-    .status h2 { margin-block: 10px; }
-    .status p { color: #E5E8D4; max-width: 640px; }
-    .status-tag { border: 1px solid rgba(242,227,199,.45); color: var(--cream); border-radius: 999px; padding: 11px 21px; white-space: nowrap; font-weight: 700; }
-    footer { background: var(--terracota-dark); color: #F5E8D5; padding-block: 27px; }
-    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    footer small { font-size: 13px; }
-    @media (max-width: 800px) {
-      .hero-inner { grid-template-columns: 1fr; padding-block: 63px; gap: 22px; }
-      .hero-art { min-height: 250px; }
-      .seal { width: 250px; }
-      .seal svg { height: 75px; width: 70px; }
-      .seal b { font-size: 17px; }
-      .seal span { font-size: 10px; }
-      .cards { grid-template-columns: 1fr; }
-      .status-inner { grid-template-columns: 1fr; gap: 10px; }
-      .status-tag { justify-self: start; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
-    @media (max-width: 500px) { nav { gap: 13px; } nav a { font-size: 13px; } .brand-text strong { font-size: 16px; } section.content { padding-block: 58px; } .card { padding: 25px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--papel);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    button { font: inherit; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--verde);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    /* CABEÇALHO */
+
+    .cabecalho {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--papel);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .topo {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .simbolo {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--terracota);
+      color: white;
+      border: 3px double var(--creme);
+      display: grid;
+      place-items: center;
+      font: bold 18px Georgia, serif;
+      flex-shrink: 0;
+    }
+
+    .marca-texto {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .marca-texto strong {
+      font: bold 19px Georgia, serif;
+    }
+
+    .marca-texto small {
+      color: var(--verde);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* NAVEGAÇÃO */
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .menu a {
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .menu a:hover {
+      color: var(--terracota);
+    }
+
+    .hamburguer {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .hamburguer span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--terracota-escuro);
+      border-radius: 3px;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .hamburguer[aria-expanded="true"] span:first-child {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburguer[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburguer[aria-expanded="true"] span:last-child {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* BANNER 16:9 */
+
+    .secao-banner {
+      padding-top: 24px;
+    }
+
+    .banner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--verde-escuro);
+      box-shadow: 0 15px 40px rgba(45,24,10,.13);
+    }
+
+    .banner video {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      background: var(--verde-escuro);
+    }
+
+    .banner video.pronto {
+      opacity: 1;
+    }
+
+    .banner-provisorio {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 7%;
+      color: var(--creme);
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(242,227,199,.15),
+          transparent 35%
+        ),
+        linear-gradient(
+          125deg,
+          #465936,
+          var(--verde-escuro) 65%,
+          var(--terracota)
+        );
+    }
+
+    .banner-provisorio.oculto {
+      display: none;
+    }
+
+    .banner-marca {
+      position: absolute;
+      right: 5%;
+      font: bold clamp(100px,22vw,270px) Georgia, serif;
+      opacity: .12;
+    }
+
+    .banner-texto {
+      position: relative;
+      z-index: 1;
+      max-width: 70%;
+    }
+
+    .banner-texto small {
+      display: block;
+      font-size: clamp(9px,1.3vw,15px);
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .banner-texto h1 {
+      margin: 15px 0;
+      font: bold clamp(22px,5vw,62px)/1.1 Georgia, serif;
+    }
+
+    .banner-texto p {
+      margin: 0;
+      font-size: clamp(11px,1.5vw,18px);
+    }
+
+    /* APRESENTAÇÃO */
+
+    .boas-vindas {
+      padding: 75px 0 35px;
+      text-align: center;
+    }
+
+    .etiqueta {
+      color: var(--terracota);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    h2 {
+      font: bold clamp(31px,4vw,48px)/1.15 Georgia, serif;
+      letter-spacing: -.025em;
+    }
+
+    .boas-vindas h2 {
+      max-width: 800px;
+      margin: 15px auto;
+    }
+
+    .boas-vindas p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #665344;
+      font-size: 17px;
+    }
+
+    /* CARTÕES */
+
+    .secao {
+      padding: 55px 0;
+    }
+
+    .titulo-secao {
+      margin-bottom: 28px;
+    }
+
+    .titulo-secao h2 {
+      margin: 10px 0;
+    }
+
+    .titulo-secao p {
+      max-width: 710px;
+      color: #665344;
+    }
+
+    .cartoes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .cartao {
+      padding: 32px;
+      background: #FFFDF9;
+      border: 1px solid var(--borda);
+      border-radius: 15px;
+      box-shadow: 0 5px 18px rgba(45,24,10,.04);
+    }
+
+    .cartao-icone {
+      display: grid;
+      place-items: center;
+      width: 55px;
+      height: 55px;
+      background: #F7E9DA;
+      color: var(--terracota);
+      border-radius: 13px;
+      font-size: 26px;
+    }
+
+    .cartao h3 {
+      margin: 23px 0 10px;
+      font: bold 25px Georgia, serif;
+    }
+
+    .cartao p {
+      margin: 0 0 20px;
+      color: #665344;
+    }
+
+    .em-breve {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #F1E9D8;
+      border-radius: 30px;
+      color: var(--verde-escuro);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* NOSSA HISTÓRIA */
+
+    .historia {
+      margin-top: 30px;
+      padding: 75px 0;
+      background: #F4EBD9;
+      border-top: 1px solid var(--borda);
+    }
+
+    .historia-interna {
+      max-width: 790px;
+      text-align: center;
+    }
+
+    .historia h2 {
+      margin: 12px 0;
+    }
+
+    .historia p {
+      color: #665344;
+      font-size: 17px;
+    }
+
+    /* PROJETO */
+
+    .projeto {
+      padding: 55px 0;
+      background: var(--verde-escuro);
+      color: var(--papel);
+    }
+
+    .projeto h2 {
+      margin: 12px 0;
+      font-size: clamp(28px,3.5vw,40px);
+    }
+
+    .projeto p {
+      max-width: 740px;
+      color: #E5E8D4;
+    }
+
+    .projeto .etiqueta {
+      color: #D9DFA7;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      background: var(--terracota-escuro);
+      color: #F5E8D5;
+      padding: 28px 0;
+    }
+
+    .rodape {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVIDADE */
+
+    @media (max-width: 900px) {
+      .hamburguer {
+        display: flex;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 110;
+        width: min(350px, 100%);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        padding: 14px;
+        background: var(--papel);
+        border: 1px solid var(--borda);
+        border-radius: 0 0 14px 14px;
+        box-shadow: 0 15px 35px rgba(45,24,10,.15);
+      }
+
+      .menu.aberto {
+        display: flex;
+      }
+
+      .menu a {
+        display: block;
+        padding: 13px 15px;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+
+      .menu a:hover {
+        background: var(--creme);
+      }
+
+      .cartoes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .topo {
+        min-height: 74px;
+        gap: 10px;
+      }
+
+      .marca {
+        gap: 9px;
+      }
+
+      .simbolo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .marca-texto strong {
+        font-size: 16px;
+      }
+
+      .marca-texto small {
+        font-size: 9px;
+      }
+
+      .secao-banner {
+        padding-top: 14px;
+      }
+
+      .banner {
+        border-radius: 10px;
+      }
+
+      .banner-texto {
+        max-width: 90%;
+      }
+
+      .banner-texto h1 {
+        margin: 8px 0;
+      }
+
+      .boas-vindas {
+        padding: 55px 0 20px;
+      }
+
+      .boas-vindas p {
+        font-size: 16px;
+      }
+
+      .secao {
+        padding: 45px 0;
+      }
+
+      .cartao {
+        padding: 26px;
+      }
+
+      .historia {
+        padding: 55px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .hamburguer span {
+        transition: none;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header id="inicio">
-    <div class="wrap nav">
-      <a class="brand" href="#inicio" aria-label="Marajoara Digital, início">
-        <span class="brand-mark" aria-hidden="true">III</span>
-        <span class="brand-text"><strong>Marajoara Digital</strong><small>Edifício Marajoara III</small></span>
+
+  <!-- CABEÇALHO -->
+
+  <header class="cabecalho" id="inicio">
+    <div class="container topo">
+
+      <a class="marca" href="#inicio" aria-label="Marajoara Digital, início">
+        <span class="simbolo" aria-hidden="true">III</span>
+
+        <span class="marca-texto">
+          <strong>Marajoara Digital</strong>
+          <small>Edifício Marajoara III</small>
+        </span>
       </a>
-      <nav aria-label="Navegação principal">
-        <a href="#projeto">O projeto</a>
-        <a href="#recursos">Em planejamento</a>
-        <a href="#andamento">Andamento</a>
+
+      <button
+        class="hamburguer"
+        id="hamburguer"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="menu"
+        id="menu-principal"
+        aria-label="Navegação principal"
+      >
+        <a href="#inicio">Início</a>
+        <a href="#jornal">Jornal Marajoara</a>
+        <a href="#agenda">Agenda e Eventos</a>
+        <a href="#comunicados">Comunicados</a>
+        <a href="#historia">Nossa História</a>
       </nav>
+
     </div>
   </header>
+
   <main>
-    <section class="hero" aria-labelledby="titulo">
-      <div class="wrap hero-inner">
-        <div>
-          <span class="eyebrow">✦ Um novo capítulo do Marajoara</span>
-          <h1 id="titulo">Nossa história merece ser <em>bem cuidada.</em></h1>
-          <p class="lead">Um espaço digital pensado para reunir a memória das melhorias, os comunicados e as histórias que fazem parte do Edifício Marajoara III.</p>
-          <div class="actions">
-            <a class="button primary" href="#projeto">Conheça a proposta</a>
-            <a class="button secondary" href="#andamento">Acompanhe o projeto</a>
+
+    <!-- BANNER 16:9 -->
+
+    <section class="secao-banner" aria-label="Apresentação do Marajoara">
+      <div class="container">
+
+        <div class="banner">
+
+          <!--
+            Vídeo futuro:
+            assets/banner-marajoara.mp4
+
+            Exportar em MP4 H.264,
+            proporção 16:9 e sem áudio.
+          -->
+
+          <video
+            id="banner-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Apresentação do Edifício Marajoara III"
+          >
+            <source
+              src="assets/banner-marajoara.mp4"
+              type="video/mp4"
+            >
+          </video>
+
+          <div class="banner-provisorio" id="banner-provisorio">
+            <span class="banner-marca" aria-hidden="true">III</span>
+
+            <div class="banner-texto">
+              <small>Edifício Marajoara III</small>
+              <h1>Um novo capítulo da nossa história.</h1>
+              <p>Bem-vindos ao Marajoara Digital.</p>
+            </div>
           </div>
+
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="seal"><div class="seal-inner">
-            <svg viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M18 86H72M27 86V19H63V86M23 19H67M38 12H52M38 34H43M53 34H58M38 48H43M53 48H58M38 62H43M53 62H58M41 86V73H49V86" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 79C12 72 16 69 24 68M82 79C78 72 74 69 66 68" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <b>MARAJOARA</b><span>EDIFÍCIO III</span>
-          </div></div>
-        </div>
+
       </div>
     </section>
-    <section class="content wrap" id="projeto">
-      <div class="section-title">
-        <span class="kicker">Memória • Comunicação • Organização</span>
-        <h2>Um lugar para registrar o que construímos juntos.</h2>
-        <p>O Marajoara Digital nasce como protótipo de um portal institucional. A proposta é facilitar a organização das informações do edifício, sempre com cuidado com a privacidade.</p>
+
+    <!-- BOAS-VINDAS -->
+
+    <section class="boas-vindas container">
+      <span class="etiqueta">
+        Memória • Comunicação • Comunidade
+      </span>
+
+      <h2>
+        Nossa história merece ser bem cuidada.
+      </h2>
+
+      <p>
+        Um espaço digital dedicado ao Edifício Marajoara III,
+        reunindo informações, acontecimentos e lembranças
+        da nossa comunidade.
+      </p>
+    </section>
+
+    <!-- JORNAL, AGENDA E COMUNICADOS -->
+
+    <section class="secao container" aria-labelledby="titulo-destaques">
+
+      <div class="titulo-secao">
+        <span class="etiqueta">Nosso portal</span>
+        <h2 id="titulo-destaques">Explore o Marajoara</h2>
+        <p>
+          Acompanhe as novidades e conheça os espaços
+          que estamos preparando.
+        </p>
       </div>
-      <div class="cards" id="recursos">
-        <article class="card"><span class="card-icon" aria-hidden="true">✎</span><h3>Jornal Digital</h3><p>Um espaço planejado para futuras edições do Jornal Marajoara, com leitura confortável no celular e no computador.</p></article>
-        <article class="card"><span class="card-icon" aria-hidden="true">▧</span><h3>Memória das melhorias</h3><p>Um histórico organizado de obras, manutenção e transformações, com fotos previamente autorizadas.</p></article>
-        <article class="card"><span class="card-icon" aria-hidden="true">✦</span><h3>Comunicados</h3><p>Uma área em planejamento para divulgar novidades e informações de interesse do condomínio.</p></article>
+
+      <div class="cartoes">
+
+        <article class="cartao" id="jornal">
+          <div class="cartao-icone" aria-hidden="true">✎</div>
+
+          <h3>Jornal Marajoara</h3>
+
+          <p>
+            Notícias, melhorias e momentos especiais do edifício.
+            Em breve, as edições do nosso jornal estarão
+            disponíveis para leitura.
+          </p>
+
+          <span class="em-breve">Em preparação</span>
+        </article>
+
+        <article class="cartao" id="agenda">
+          <div class="cartao-icone" aria-hidden="true">▦</div>
+
+          <h3>Agenda e Eventos</h3>
+
+          <p>
+            Um espaço para acompanhar comemorações,
+            reuniões e outros acontecimentos
+            de interesse dos moradores.
+          </p>
+
+          <span class="em-breve">Em preparação</span>
+        </article>
+
+        <article class="cartao" id="comunicados">
+          <div class="cartao-icone" aria-hidden="true">✦</div>
+
+          <h3>Comunicados</h3>
+
+          <p>
+            Informações importantes e avisos gerais,
+            publicados mediante revisão
+            e autorização da administração.
+          </p>
+
+          <span class="em-breve">Em preparação</span>
+        </article>
+
       </div>
     </section>
-    <section class="status" id="andamento">
-      <div class="wrap status-inner">
-        <div><span class="kicker">Primeira versão</span><h2>Estamos construindo essa ideia.</h2><p>Este é um protótipo visual. Funcionalidades, publicações e acesso administrativo serão adicionados somente após revisão e autorização apropriadas.</p></div>
-        <span class="status-tag">Projeto em desenvolvimento</span>
+
+    <!-- NOSSA HISTÓRIA -->
+
+    <section class="historia" id="historia">
+      <div class="container historia-interna">
+
+        <span class="etiqueta">Memória do edifício</span>
+
+        <h2>Nossa História</h2>
+
+        <p>
+          Cada lugar guarda histórias, encontros
+          e momentos que merecem ser lembrados.
+        </p>
+
+        <p>
+          Estamos preparando um espaço para preservar
+          a trajetória do Edifício Marajoara III,
+          com informações e registros confirmados
+          e autorizados para publicação.
+        </p>
+
       </div>
     </section>
+
+    <!-- DESENVOLVIMENTO -->
+
+    <section class="projeto">
+      <div class="container">
+
+        <span class="etiqueta">Marajoara Digital</span>
+
+        <h2>Estamos construindo essa ideia.</h2>
+
+        <p>
+          Este portal está em desenvolvimento.
+          Novos conteúdos e funcionalidades serão
+          adicionados gradualmente, respeitando
+          a privacidade e as necessidades
+          da comunidade.
+        </p>
+
+      </div>
+    </section>
+
   </main>
-  <footer><div class="wrap"><small>© <span id="ano">2026</span> Marajoara Digital · Edifício Marajoara III</small><small>Comunicação com identidade e cuidado.</small></div></footer>
-  <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+
+  <!-- RODAPÉ -->
+
+  <footer>
+    <div class="container rodape">
+
+      <span>
+        © <span id="ano">2026</span>
+        Marajoara Digital · Edifício Marajoara III
+      </span>
+
+      <span>Comunicação com identidade e cuidado.</span>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+    // Atualização automática do ano
+
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+
+    // Menu hambúrguer
+
+    const botao = document.getElementById("hamburguer");
+    const menu = document.getElementById("menu-principal");
+
+    function abrirMenu(aberto) {
+      menu.classList.toggle("aberto", aberto);
+
+      botao.setAttribute(
+        "aria-expanded",
+        String(aberto)
+      );
+
+      botao.setAttribute(
+        "aria-label",
+        aberto ? "Fechar menu" : "Abrir menu"
+      );
+    }
+
+    botao.addEventListener("click", function () {
+      const aberto =
+        botao.getAttribute("aria-expanded") === "true";
+
+      abrirMenu(!aberto);
+    });
+
+    // Fecha ao escolher uma seção
+
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        abrirMenu(false);
+      });
+    });
+
+    // Fecha ao pressionar Escape
+
+    document.addEventListener("keydown", function (evento) {
+      if (evento.key === "Escape") {
+        abrirMenu(false);
+      }
+    });
+
+    // Fecha ao clicar fora do menu
+
+    document.addEventListener("click", function (evento) {
+      if (
+        !menu.contains(evento.target) &&
+        !botao.contains(evento.target)
+      ) {
+        abrirMenu(false);
+      }
+    });
+
+    // Fecha ao voltar para desktop
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) {
+        abrirMenu(false);
+      }
+    });
+
+    // Banner MP4
+
+    const video = document.getElementById("banner-video");
+    const provisoria =
+      document.getElementById("banner-provisorio");
+
+    function mostrarVideo() {
+      video.classList.add("pronto");
+      provisoria.classList.add("oculto");
+    }
+
+    // Exibe o vídeo somente quando estiver funcionando
+
+    video.addEventListener("playing", mostrarVideo);
+
+    // Respeita a preferência de movimento reduzido
+
+    if (
+      window.matchMedia &&
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+    ) {
+      video.autoplay = false;
+      video.controls = true;
+
+      video.addEventListener("loadeddata", mostrarVideo);
+    }
+
+    // Se o arquivo ainda não existir, preserva a capa
+
+    video.addEventListener("error", function () {
+      video.classList.remove("pronto");
+      provisoria.classList.remove("oculto");
+    });
+  </script>
+
 </body>
 </html>
