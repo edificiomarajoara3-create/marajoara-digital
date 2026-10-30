@@ -7,4 +7,24 @@
   ],
   "materias": [],
   "edicoes": []
+},
+
+{
+  "versao": 1,
+  "nome": "Jornal Marajoara",
+  "descricao": "Arquivo público de matérias e edições autorizadas do Edifício Marajoara III.",
+  "anos_iniciais": [
+    2026
+  ],
+  "materias": [],
+  "edicoes": [
+    {
+      "numero": "1",
+      "titulo": "Jornal Marajoara — Edição 1",
+      "data_publicacao": "2026-10-27",
+      "descricao": "Primeira edição do Jornal Marajoara",
+      "arquivo": "jornal-marajoara-01.pdf"
+    }
+  ]
 }
+
