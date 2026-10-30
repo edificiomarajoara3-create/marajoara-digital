@@ -1,169 +1,1334 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#AA3716">
+<meta name="description" content="Edições, notícias e realizações do Jornal Marajoara.">
+<title>Jornal Marajoara | Edifício Marajoara III</title>
 
-{
-  "versao": 1,
-  "nome": "Jornal Marajoara",
-  "descricao": "Arquivo público de matérias e edições autorizadas do Edifício Marajoara III.",
-  "anos_iniciais": [2026],
-  "materias": [
-    {
-      "id": "iluminacao-do-campo-2026",
-      "titulo": "01 — Iluminação do campo",
-      "resumo": "Conserto do poste de luz e instalação de um novo holofote no campo.",
-      "categoria": "Manutenção",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado o conserto do poste de luz e a instalação de um novo holofote no campo, proporcionando melhor iluminação, segurança e conforto aos moradores."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "pintura-do-postinho-2026",
-      "titulo": "02 — Pintura do postinho",
-      "resumo": "Pintura dos postes da área do estacionamento.",
-      "categoria": "Conservação",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizada a pintura dos postes da área do estacionamento, contribuindo para a melhoria visual e a conservação do condomínio."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "desobstrucao-de-esgoto-2026",
-      "titulo": "03 — Desobstrução de esgoto",
-      "resumo": "Manutenção para solucionar um entupimento na rede de esgoto.",
-      "categoria": "Manutenção",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado um serviço de manutenção para solucionar um entupimento na rede de esgoto do condomínio, evitando transtornos aos moradores."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "reparo-na-sacada-2026",
-      "titulo": "04 — Reparo na sacada",
-      "resumo": "Reparo para corrigir fissuras e deterioração na sacada.",
-      "categoria": "Manutenção",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado um serviço de reparo na sacada, visando corrigir fissuras e deterioração, contribuindo para a conservação e a segurança dos moradores."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "reparo-de-infiltracao-2026",
-      "titulo": "05 — Reparo de infiltração",
-      "resumo": "Reparo de áreas atingidas por infiltração externa.",
-      "categoria": "Manutenção",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado o reparo das áreas afetadas por infiltração proveniente da parte externa do edifício, recuperando as paredes e contribuindo para a conservação da estrutura."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "nova-porta-de-entrada-2026",
-      "titulo": "06 — Nova porta de entrada",
-      "resumo": "Substituição da porta de entrada por uma nova.",
-      "categoria": "Segurança e acesso",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizada a substituição da porta de entrada por uma nova, proporcionando mais segurança e valorização ao ambiente de acesso."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "troca-dos-tubos-2026",
-      "titulo": "07 — Troca dos tubos",
-      "resumo": "Troca de tubos para melhorar o funcionamento e prevenir problemas.",
-      "categoria": "Manutenção",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizada a troca de tubos, proporcionando mais segurança, melhor funcionamento e prevenção de problemas futuros."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "corte-de-grama-2026",
-      "titulo": "08 — Corte de grama",
-      "resumo": "Corte da grama nas áreas externas do condomínio.",
-      "categoria": "Conservação",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado o corte da grama nas áreas externas do condomínio, contribuindo para a conservação do espaço verde e a proteção do ambiente."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "dedetizacao-2026",
-      "titulo": "09 — Dedetização",
-      "resumo": "Serviço de dedetização para prevenir e controlar pragas.",
-      "categoria": "Conservação",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizado o serviço de dedetização no condomínio, visando prevenir e controlar a presença de pragas, contribuindo para a higiene e o bem-estar dos moradores."
-      ],
-      "imagens": []
-    },
-    {
-      "id": "troca-do-portao-2026",
-      "titulo": "10 — Troca do portão",
-      "resumo": "Substituição do portão eletrônico de acesso de veículos ao edifício.",
-      "categoria": "Segurança e acesso",
-      "ano_referencia": 2026,
-      "data_realizacao": "2026",
-      "precisao_data": "ano",
-      "data_publicacao": "2026-10-27",
-      "edicao": "1",
-      "conteudo": [
-        "Foi realizada a substituição do portão eletrônico de acesso de veículos ao edifício, proporcionando mais segurança aos moradores."
-      ],
-      "imagens": []
-    }
-  ],
-  "edicoes": [
-    {
-      "numero": "1",
-      "titulo": "Jornal Marajoara — Edição 1",
-      "data_publicacao": "2026-10-27",
-      "descricao": "Primeira edição do Jornal Marajoara",
-      "arquivo": "jornal-marajoara-01.pdf",
-      "imagem": "jornal-marajoara-01.jpg"
-    }
-  ]
+<style>
+:root{
+  --terra:#AA3716;
+  --terra-esc:#7D2A13;
+  --creme:#F2E3C7;
+  --fundo:#FBF7EF;
+  --papel:#FFFDF9;
+  --texto:#2D180A;
+  --verde:#4D5F2D;
+  --borda:#E5D7BF;
+  --cinza:#655344;
 }
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:var(--fundo);
+  color:var(--texto);
+  font:16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+a{color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+:focus-visible{
+  outline:3px solid var(--verde);
+  outline-offset:3px;
+}
+
+.container{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:5;
+  background:var(--fundo);
+  border-bottom:1px solid var(--borda);
+}
+
+.topo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:80px;
+}
+
+.marca{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+.selo{
+  display:grid;
+  place-items:center;
+  background:var(--terra);
+  color:#fff;
+  border:3px double var(--creme);
+  border-radius:50%;
+  width:46px;
+  height:46px;
+  font:700 18px Georgia,serif;
+}
+
+.marca strong{
+  display:block;
+  font:700 19px Georgia,serif;
+}
+
+.marca small{
+  display:block;
+  color:var(--verde);
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+nav a{
+  text-decoration:none;
+  font-size:13px;
+  font-weight:750;
+}
+
+nav a:hover,
+nav a[aria-current]{
+  color:var(--terra);
+}
+
+.hero{
+  padding:64px 0;
+  background:linear-gradient(
+    120deg,
+    #F3E8D4,
+    var(--fundo) 60%,
+    #EBEDD9
+  );
+  border-bottom:1px solid var(--borda);
+}
+
+.rotulo{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--terra-esc);
+}
+
+h1,h2,h3{
+  font-family:Georgia,'Times New Roman',serif;
+  line-height:1.2;
+}
+
+h1{
+  font-size:clamp(40px,6vw,70px);
+  margin:10px 0 16px;
+  letter-spacing:-.04em;
+}
+
+h2{
+  font-size:clamp(26px,3vw,38px);
+  margin:8px 0 18px;
+}
+
+h3{
+  font-size:clamp(20px,2.4vw,25px);
+  margin:8px 0 10px;
+}
+
+.hero p{
+  color:var(--cinza);
+  max-width:720px;
+  font-size:18px;
+  margin:0;
+}
+
+.caminho{
+  padding-top:18px;
+  color:var(--cinza);
+  font-size:13px;
+}
+
+.caminho a{
+  color:var(--terra-esc);
+}
+
+section.bloco{
+  padding:36px 0;
+}
+
+.filtros,.cartao,.edicao{
+  background:var(--papel);
+  border:1px solid var(--borda);
+  border-radius:16px;
+}
+
+.filtros{
+  padding:24px;
+  box-shadow:0 12px 34px #2D180A0E;
+}
+
+.grade-filtros{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:15px;
+}
+
+.campo label{
+  display:block;
+  font-weight:750;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.campo input,
+.campo select{
+  width:100%;
+  min-height:48px;
+  padding:11px 13px;
+  background:#fff;
+  color:var(--texto);
+  border:1px solid #CAB9A1;
+  border-radius:9px;
+}
+
+.anos{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.anos strong{
+  font-size:13px;
+  margin-right:4px;
+}
+
+.botao-ano{
+  padding:7px 15px;
+  border:1px solid var(--borda);
+  border-radius:30px;
+  background:#fff;
+  color:var(--texto);
+  font-weight:700;
+}
+
+.botao-ano:hover{
+  border-color:var(--terra);
+}
+
+.botao-ano[aria-pressed="true"]{
+  background:var(--terra);
+  border-color:var(--terra);
+  color:#fff;
+}
+
+.linha-titulo{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.linha-titulo h2{
+  margin-bottom:8px;
+}
+
+.contador,.nota{
+  color:var(--cinza);
+  font-size:14px;
+}
+
+.ano-titulo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:20px 0 15px;
+  font:700 32px Georgia,serif;
+  color:var(--terra-esc);
+}
+
+.ano-titulo:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--borda);
+}
+
+.lista{
+  display:grid;
+  gap:16px;
+}
+
+.cartao{
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr);
+  gap:22px;
+  padding:18px;
+  transition:box-shadow .2s,border-color .2s;
+}
+
+.cartao:hover{
+  border-color:#C8A78C;
+  box-shadow:0 12px 28px #2D180A17;
+}
+
+.foto-link{
+  display:block;
+  overflow:hidden;
+  border-radius:10px;
+  background:#EAE4D8;
+  min-height:142px;
+  align-self:start;
+}
+
+.foto-link img{
+  display:block;
+  width:100%;
+  height:146px;
+  object-fit:cover;
+  transition:transform .3s;
+}
+
+.cartao:hover .foto-link img{
+  transform:scale(1.035);
+}
+
+.tag{
+  display:inline-block;
+  background:#EAECD9;
+  color:var(--verde);
+  padding:3px 11px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.cartao h3 a{
+  color:var(--terra-esc);
+  text-decoration:none;
+}
+
+.cartao h3 a:hover{
+  text-decoration:underline;
+}
+
+.cartao p{
+  color:var(--cinza);
+  margin:0 0 10px;
+}
+
+.dados{
+  font-size:13px;
+  color:var(--cinza);
+  margin-bottom:7px;
+}
+
+.ler{
+  color:var(--terra-esc);
+  font-weight:800;
+  font-size:14px;
+  text-underline-offset:3px;
+}
+
+.edicoes{
+  display:grid;
+  gap:14px;
+}
+
+.edicao{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:16px;
+}
+
+.capa{
+  flex:0 0 94px;
+}
+
+.capa img{
+  display:block;
+  width:94px;
+  aspect-ratio:1/1.414;
+  object-fit:contain;
+  background:#F6F1E8;
+  border:1px solid var(--borda);
+  border-radius:6px;
+}
+
+.edicao-info{
+  flex:1;
+  min-width:0;
+}
+
+.edicao-info strong{
+  font:700 21px Georgia,serif;
+}
+
+.edicao-info p{
+  margin:6px 0;
+  color:var(--cinza);
+  font-size:14px;
+}
+
+.pdf{
+  display:inline-block;
+  background:var(--terra);
+  color:#fff;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.pdf:hover{
+  background:var(--terra-esc);
+}
+
+.vazio{
+  background:var(--papel);
+  border:1px dashed #C9BAA3;
+  border-radius:14px;
+  text-align:center;
+  padding:30px;
+  color:var(--cinza);
+}
+
+.aviso{
+  background:#1E2F0F;
+  color:#E1E9D5;
+  padding:35px 0;
+}
+
+.aviso h2{
+  color:#fff;
+  font-size:27px;
+  margin:0 0 10px;
+}
+
+.aviso p{
+  max-width:850px;
+  margin:0;
+}
+
+footer{
+  background:var(--terra-esc);
+  color:#F5E8D5;
+  padding:25px 0;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+  .topo{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px 0;
+  }
+
+  nav{
+    gap:10px 18px;
+  }
+
+  .hero{
+    padding:40px 0;
+  }
+}
+
+@media(max-width:600px){
+  .grade-filtros{
+    grid-template-columns:1fr;
+  }
+
+  .filtros{
+    padding:18px;
+  }
+
+  .cartao{
+    grid-template-columns:105px minmax(0,1fr);
+    gap:13px;
+    padding:13px;
+  }
+
+  .foto-link{
+    min-height:100px;
+  }
+
+  .foto-link img{
+    height:112px;
+  }
+
+  .cartao h3{
+    font-size:20px;
+  }
+
+  .edicao{
+    flex-wrap:wrap;
+  }
+
+  .edicao-info{
+    flex:1 1 150px;
+  }
+
+  .pdf{
+    width:100%;
+    text-align:center;
+  }
+}
+
+@media(max-width:390px){
+  .cartao{
+    grid-template-columns:1fr;
+  }
+
+  .foto-link img{
+    height:180px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cartao,
+  .foto-link img{
+    transition:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container topo">
+
+    <a class="marca" href="index.html"
+       aria-label="Início do Marajoara Digital">
+
+      <span class="selo">III</span>
+
+      <span>
+        <strong>Marajoara Digital</strong>
+        <small>Edifício Marajoara III</small>
+      </span>
+    </a>
+
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="jornal.html" aria-current="page">
+        Jornal Marajoara
+      </a>
+      <a href="index.html#agenda">Agenda e Eventos</a>
+      <a href="index.html#comunicados">Comunicados</a>
+      <a href="index.html#historia">Nossa História</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+
+    <span class="rotulo">
+      Edições · Realizações · Memória
+    </span>
+
+    <h1>
+      Jornal
+      <span style="color:var(--terra)">
+        Marajoara.
+      </span>
+    </h1>
+
+    <p>
+      As novidades do edifício e a história de cada
+      realização, preservadas para a nossa comunidade.
+    </p>
+
+  </div>
+</section>
+
+<div class="container caminho">
+  <a href="index.html">Início</a>
+  › Jornal Marajoara
+</div>
+
+<section class="bloco container"
+         aria-labelledby="filtros-titulo">
+
+  <div class="filtros">
+
+    <h2 id="filtros-titulo">
+      Encontre uma matéria
+    </h2>
+
+    <div class="grade-filtros">
+
+      <div class="campo">
+        <label for="pesquisa">
+          Pesquisar no histórico
+        </label>
+
+        <input
+          type="search"
+          id="pesquisa"
+          placeholder="Ex.: portão, pintura, outubro de 2026"
+          autocomplete="off">
+      </div>
+
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+
+        <select id="categoria">
+          <option value="todas">
+            Todas as categorias
+          </option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="anos" id="anos">
+      <strong>Ano:</strong>
+    </div>
+
+  </div>
+</section>
+
+<section class="bloco container"
+         aria-labelledby="materias-titulo">
+
+  <div class="linha-titulo">
+
+    <div>
+      <span class="rotulo">
+        Arquivo cronológico
+      </span>
+
+      <h2 id="materias-titulo">
+        Matérias e realizações
+      </h2>
+    </div>
+
+    <span class="contador"
+          id="contador"
+          role="status"
+          aria-live="polite">
+      Carregando…
+    </span>
+
+  </div>
+
+  <div id="materias" aria-live="polite"></div>
+
+</section>
+
+<section class="bloco container"
+         id="edicoes"
+         aria-labelledby="edicoes-titulo">
+
+  <span class="rotulo">
+    Publicações originais
+  </span>
+
+  <h2 id="edicoes-titulo">
+    Edições do jornal
+  </h2>
+
+  <p class="nota">
+    Veja as capas e os PDFs das edições autorizadas.
+  </p>
+
+  <div class="edicoes" id="lista-edicoes"></div>
+
+</section>
+
+<section class="aviso">
+  <div class="container">
+
+    <h2>
+      Memórias cuidadas, informações conferidas.
+    </h2>
+
+    <p>
+      A data de uma realização pode ser diferente
+      da data de publicação. As informações são
+      exibidas conforme os registros confirmados
+      e autorizados.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="ano-atual">2026</span>
+    Marajoara Digital · Edifício Marajoara III
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+$('ano-atual').textContent = new Date().getFullYear();
+
+const estado = {
+  dados: null,
+  ano: 'todos',
+  categoria: 'todas',
+  busca: ''
+};
+
+/*
+  Fotografias da edição 01.
+
+  Estes caminhos funcionam como alternativa
+  enquanto o jornal.json ainda não contém
+  as imagens cadastradas.
+
+  As duas primeiras fotos utilizam os nomes
+  encontrados anteriormente no GitHub.
+*/
+
+const nomesFotos = {
+  'iluminacao-do-campo-2026':
+    '01-Iluminação do campo.jpg',
+
+  'pintura-do-postinho-2026':
+    '01-Pintura do postinho.jpg',
+
+  'desobstrucao-de-esgoto-2026':
+    '01-desobstrucao-de-esgoto.jpg',
+
+  'reparo-na-sacada-2026':
+    '01-reparo-na-sacada.jpg',
+
+  'reparo-de-infiltracao-2026':
+    '01-reparo-de-infiltracao.jpg',
+
+  'nova-porta-de-entrada-2026':
+    '01-nova-porta-de-entrada.jpg',
+
+  'troca-dos-tubos-2026':
+    '01-troca-dos-tubos.jpg',
+
+  'corte-de-grama-2026':
+    '01-corte-de-grama.jpg',
+
+  'dedetizacao-2026':
+    '01-dedetizacao.jpg',
+
+  'troca-do-portao-2026':
+    '01-troca-do-portao.jpg'
+};
+
+function el(tag, classe, texto) {
+  const n = document.createElement(tag);
+
+  if (classe) {
+    n.className = classe;
+  }
+
+  if (texto !== undefined) {
+    n.textContent = String(texto);
+  }
+
+  return n;
+}
+
+function textoNormal(x) {
+  return String(x ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function partesData(x) {
+  if (
+    typeof x !== 'string' ||
+    !/^\d{4}(-\d\d)?(-\d\d)?$/.test(x)
+  ) {
+    return null;
+  }
+
+  const p = x.split('-').map(Number);
+
+  if (
+    p.length > 1 &&
+    (p[1] < 1 || p[1] > 12)
+  ) {
+    return null;
+  }
+
+  return p;
+}
+
+function dataPt(x) {
+  const p = partesData(x);
+
+  if (!p) {
+    return 'Data a confirmar';
+  }
+
+  const meses = [
+    'janeiro',
+    'fevereiro',
+    'março',
+    'abril',
+    'maio',
+    'junho',
+    'julho',
+    'agosto',
+    'setembro',
+    'outubro',
+    'novembro',
+    'dezembro'
+  ];
+
+  if (p.length === 1) {
+    return String(p[0]);
+  }
+
+  if (p.length === 2) {
+    return `${meses[p[1]-1]} de ${p[0]}`;
+  }
+
+  return `${p[2]} de ${meses[p[1]-1]} de ${p[0]}`;
+}
+
+function anoMateria(m) {
+  return (
+    Number(m.ano_referencia) ||
+    partesData(m.data_realizacao)?.[0] ||
+    partesData(m.data_publicacao)?.[0] ||
+    0
+  );
+}
+
+function caminhoSeguro(s) {
+  if (
+    typeof s !== 'string' ||
+    !s.trim() ||
+    s.includes('..') ||
+    s.includes('\\') ||
+    s.startsWith('/') ||
+    /^[a-z][\w+.-]*:/i.test(s)
+  ) {
+    return null;
+  }
+
+  return s.trim();
+}
+
+function caminhoFoto(m) {
+  const cadastrada = Array.isArray(m.imagens)
+    ? m.imagens.find(
+        im => im && caminhoSeguro(im.arquivo)
+      )
+    : null;
+
+  if (cadastrada) {
+    return caminhoSeguro(cadastrada.arquivo);
+  }
+
+  if (nomesFotos[m.id]) {
+    return `assets/edicao-01/${nomesFotos[m.id]}`;
+  }
+
+  return null;
+}
+
+function vazio(msg) {
+  return el('div', 'vazio', msg);
+}
+
+function renderAnos() {
+  const caixa = $('anos');
+
+  caixa.replaceChildren(
+    el('strong', '', 'Ano:')
+  );
+
+  const anos = new Set([
+    2026,
+    ...(estado.dados.anos_iniciais || [])
+  ]);
+
+  estado.dados.materias.forEach(m => {
+    if (anoMateria(m)) {
+      anos.add(anoMateria(m));
+    }
+  });
+
+  const opcoes = [
+    ['todos', 'Todos os anos'],
+    ...[...anos]
+      .sort((a,b) => b-a)
+      .map(a => [String(a), String(a)])
+  ];
+
+  opcoes.forEach(([valor, titulo]) => {
+    const b = el(
+      'button',
+      'botao-ano',
+      titulo
+    );
+
+    b.type = 'button';
+
+    b.setAttribute(
+      'aria-pressed',
+      String(estado.ano === valor)
+    );
+
+    b.onclick = () => {
+      estado.ano = valor;
+
+      renderAnos();
+      renderMaterias();
+      renderEdicoes();
+    };
+
+    caixa.append(b);
+  });
+}
+
+function renderCategorias() {
+  const select = $('categoria');
+
+  select.replaceChildren();
+
+  const primeira = el(
+    'option',
+    '',
+    'Todas as categorias'
+  );
+
+  primeira.value = 'todas';
+
+  select.append(primeira);
+
+  const categorias = [
+    ...new Set(
+      estado.dados.materias
+        .map(m => m.categoria)
+        .filter(Boolean)
+    )
+  ].sort();
+
+  categorias.forEach(c => {
+    const o = el('option', '', c);
+
+    o.value = c;
+
+    select.append(o);
+  });
+}
+
+function renderMaterias() {
+  const host = $('materias');
+
+  host.replaceChildren();
+
+  const lista = estado.dados.materias
+    .filter(m => {
+
+      if (
+        estado.ano !== 'todos' &&
+        String(anoMateria(m)) !== estado.ano
+      ) {
+        return false;
+      }
+
+      if (
+        estado.categoria !== 'todas' &&
+        m.categoria !== estado.categoria
+      ) {
+        return false;
+      }
+
+      const texto = [
+        m.titulo,
+        m.resumo,
+        m.categoria,
+        m.data_realizacao,
+        dataPt(m.data_realizacao),
+        m.data_publicacao,
+        dataPt(m.data_publicacao),
+        ...(
+          Array.isArray(m.conteudo)
+            ? m.conteudo
+            : []
+        )
+      ].join(' ');
+
+      return textoNormal(texto)
+        .includes(textoNormal(estado.busca));
+    })
+    .sort((a,b) => {
+      const da = String(
+        a.data_realizacao ||
+        a.data_publicacao ||
+        ''
+      );
+
+      const db = String(
+        b.data_realizacao ||
+        b.data_publicacao ||
+        ''
+      );
+
+      return (
+        db.localeCompare(da) ||
+        String(a.titulo)
+          .localeCompare(String(b.titulo), 'pt-BR')
+      );
+    });
+
+  $('contador').textContent =
+    `${lista.length} ${
+      lista.length === 1
+        ? 'matéria encontrada'
+        : 'matérias encontradas'
+    }`;
+
+  if (!lista.length) {
+    host.append(
+      vazio(
+        'Nenhuma matéria encontrada. ' +
+        'Tente outro assunto, ano ou categoria.'
+      )
+    );
+
+    return;
+  }
+
+  const grupos = new Map();
+
+  lista.forEach(m => {
+    const ano = anoMateria(m) || 'A confirmar';
+
+    if (!grupos.has(ano)) {
+      grupos.set(ano, []);
+    }
+
+    grupos.get(ano).push(m);
+  });
+
+  for (const [ano, artigos] of grupos) {
+    const h = el('h3', 'ano-titulo', ano);
+
+    const grid = el('div', 'lista');
+
+    host.append(h, grid);
+
+    artigos.forEach(m => {
+      const url =
+        'materia.html?id=' +
+        encodeURIComponent(m.id || '');
+
+      const card = el('article', 'cartao');
+
+      const foto = caminhoFoto(m);
+
+      if (foto) {
+        const link = el('a', 'foto-link');
+
+        link.href = url;
+
+        link.setAttribute(
+          'aria-label',
+          'Abrir ' + (m.titulo || 'matéria')
+        );
+
+        const img = el('img');
+
+        img.src = foto;
+
+        img.alt =
+          (
+            Array.isArray(m.imagens) &&
+            m.imagens[0]?.alt
+          ) ||
+          m.titulo ||
+          'Fotografia da matéria';
+
+        img.loading = 'lazy';
+        img.decoding = 'async';
+
+        img.onerror = () => {
+          link.remove();
+          card.style.gridTemplateColumns = '1fr';
+        };
+
+        link.append(img);
+        card.append(link);
+
+      } else {
+        card.style.gridTemplateColumns = '1fr';
+      }
+
+      const info = el('div');
+
+      info.append(
+        el(
+          'span',
+          'tag',
+          m.categoria || 'Notícia'
+        )
+      );
+
+      const titulo = el('h3');
+
+      const a = el(
+        'a',
+        '',
+        m.titulo || 'Matéria'
+      );
+
+      a.href = url;
+
+      titulo.append(a);
+
+      info.append(titulo);
+
+      if (m.resumo) {
+        info.append(
+          el('p', '', m.resumo)
+        );
+      }
+
+      info.append(
+        el(
+          'div',
+          'dados',
+          'Realização: ' +
+          dataPt(m.data_realizacao) +
+          ' · Publicação: ' +
+          dataPt(m.data_publicacao)
+        )
+      );
+
+      const ler = el(
+        'a',
+        'ler',
+        'Leia a matéria →'
+      );
+
+      ler.href = url;
+
+      info.append(ler);
+
+      card.append(info);
+
+      grid.append(card);
+    });
+  }
+}
+
+function renderEdicoes() {
+  const host = $('lista-edicoes');
+
+  host.replaceChildren();
+
+  const lista = (
+    estado.dados.edicoes || []
+  )
+    .filter(e =>
+      estado.ano === 'todos' ||
+      String(
+        partesData(e.data_publicacao)?.[0]
+      ) === estado.ano
+    )
+    .sort((a,b) =>
+      String(b.data_publicacao)
+        .localeCompare(
+          String(a.data_publicacao)
+        )
+    );
+
+  if (!lista.length) {
+    host.append(
+      vazio(
+        'Ainda não há edições publicadas ' +
+        'para esse ano.'
+      )
+    );
+
+    return;
+  }
+
+  lista.forEach(e => {
+    const box = el('article', 'edicao');
+
+    const pdf = caminhoSeguro(e.arquivo);
+    const capa = caminhoSeguro(e.imagem);
+
+    if (capa) {
+      const a = el(
+        pdf ? 'a' : 'div',
+        'capa'
+      );
+
+      if (pdf) {
+        a.href = pdf;
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
+
+      const img = el('img');
+
+      img.src = capa;
+
+      img.alt =
+        'Capa de ' +
+        (e.titulo || 'Jornal Marajoara');
+
+      img.loading = 'lazy';
+
+      img.onerror = () => a.remove();
+
+      a.append(img);
+
+      box.append(a);
+    }
+
+    const info = el(
+      'div',
+      'edicao-info'
+    );
+
+    info.append(
+      el(
+        'strong',
+        '',
+        e.titulo || 'Edição ' + e.numero
+      )
+    );
+
+    info.append(
+      el(
+        'p',
+        '',
+        'Publicação: ' +
+        dataPt(e.data_publicacao) +
+        (
+          e.descricao
+            ? ' · ' + e.descricao
+            : ''
+        )
+      )
+    );
+
+    box.append(info);
+
+    if (pdf) {
+      const a = el(
+        'a',
+        'pdf',
+        'Abrir PDF ↗'
+      );
+
+      a.href = pdf;
+      a.target = '_blank';
+      a.rel = 'noopener';
+
+      box.append(a);
+    }
+
+    host.append(box);
+  });
+}
+
+async function iniciar() {
+  try {
+    const res = await fetch(
+      'jornal.json',
+      {
+        cache: 'no-cache'
+      }
+    );
+
+    if (!res.ok) {
+      throw Error('HTTP ' + res.status);
+    }
+
+    const dados = await res.json();
+
+    if (
+      !Array.isArray(dados.materias) ||
+      !Array.isArray(dados.edicoes)
+    ) {
+      throw Error('Formato inesperado');
+    }
+
+    estado.dados = dados;
+
+    renderAnos();
+    renderCategorias();
+    renderMaterias();
+    renderEdicoes();
+
+    $('pesquisa').addEventListener(
+      'input',
+      e => {
+        estado.busca = e.target.value;
+        renderMaterias();
+      }
+    );
+
+    $('categoria').addEventListener(
+      'change',
+      e => {
+        estado.categoria = e.target.value;
+        renderMaterias();
+      }
+    );
+
+  } catch (erro) {
+    $('materias').replaceChildren(
+      vazio(
+        'Não foi possível carregar as matérias. ' +
+        'Confira se jornal.json está publicado ' +
+        'na mesma pasta.'
+      )
+    );
+
+    $('contador').textContent = '';
+
+    $('lista-edicoes').replaceChildren(
+      vazio('Edições indisponíveis.')
+    );
+
+    console.error(erro);
+  }
+}
+
+iniciar();
+</script>
+
+</body>
+</html>
