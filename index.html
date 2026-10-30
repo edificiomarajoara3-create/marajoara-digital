@@ -3,15 +3,14 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#AA3716">
-<meta name="description" content="Portal do Edifício Marajoara III: jornal, agenda, comunicados e memória.">
+<meta name="description" content="Marajoara III: jornal, agenda, comunicados e memórias do Edifício Marajoara III.">
 <title>Marajoara III | Portal do Edifício</title>
-
 <style>
-:root {
+:root{
   --terra:#AA3716;
-  --terra-escuro:#7D2A13;
+  --terra2:#7D2A13;
   --creme:#F2E3C7;
   --papel:#FBF7EF;
   --verde:#4D5F2D;
@@ -19,483 +18,350 @@
   --texto:#2D180A;
   --suave:#685646;
   --borda:#E5D7BF;
-  --sombra:0 12px 32px rgba(45,24,10,.10);
+  --sombra:0 10px 26px #2D180A14;
 }
-
-*,*::before,*::after { box-sizing:border-box; }
-[hidden] { display:none!important; }
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:98px;
-}
-
-body {
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
   margin:0;
   background:var(--papel);
   color:var(--texto);
-  font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
 }
-
-img,video { max-width:100%; }
-a { color:inherit; }
-button { font:inherit;cursor:pointer; }
-
-a:focus-visible,button:focus-visible {
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{
   outline:3px solid var(--verde);
   outline-offset:3px;
 }
-
-.container {
-  width:min(1180px,calc(100% - 36px));
+[hidden]{display:none!important}
+.container{
+  width:min(1120px,calc(100% - 30px));
   margin-inline:auto;
 }
-
-.skip {
-  position:fixed;
-  left:12px;
-  top:-80px;
-  z-index:999;
-  background:var(--floresta);
-  color:#fff;
-  padding:10px 15px;
-  border-radius:8px;
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
 }
-
-.skip:focus { top:10px; }
+.skip{
+  position:fixed;
+  top:-90px;left:12px;z-index:999;
+  padding:9px 14px;
+  background:var(--floresta);
+  color:white;border-radius:8px;
+}
+.skip:focus{top:10px}
 
 /* CABEÇALHO */
 
-.cabecalho {
+.cabecalho{
   position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(251,247,239,.98);
+  top:0;z-index:50;
+  background:var(--papel);
   border-bottom:1px solid var(--borda);
 }
-
-.topo {
-  min-height:84px;
+.topo{
+  min-height:78px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:14px;
+  justify-content:space-between;
+  gap:12px;
   position:relative;
 }
-
-.marca {
+.marca{
   display:flex;
   align-items:center;
-  gap:12px;
-  text-decoration:none;
+  gap:10px;
   min-width:0;
+  text-decoration:none;
 }
-
-.logo {
-  display:block;
-  width:57px;
-  height:57px;
+.marca img{
+  width:54px;height:54px;
   object-fit:contain;
   flex:none;
 }
-
-.marca-texto {
+.marca-texto{
   display:flex;
   flex-direction:column;
-  line-height:1.2;
-  min-width:0;
+  line-height:1.15;
 }
-
-.marca-texto strong {
+.marca-texto strong{
   font:bold 19px Georgia,serif;
 }
-
-.marca-texto small {
+.marca-texto small{
   margin-top:5px;
   color:var(--verde);
   font-size:10px;
-  font-weight:750;
-  letter-spacing:.1em;
+  font-weight:800;
+  letter-spacing:.08em;
   text-transform:uppercase;
 }
-
-/* NAVEGAÇÃO */
-
-.menu {
+.menu{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:19px;
 }
-
-.menu a {
+.menu a{
   text-decoration:none;
   font-size:13px;
   font-weight:750;
 }
-
-.menu a:hover { color:var(--terra); }
-
-.hamburguer {
+.menu a:hover{color:var(--terra)}
+.hamburguer{
   display:none;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
+  flex-direction:column;
   gap:5px;
-  width:46px;
-  height:46px;
+  width:45px;height:45px;
   flex:none;
-  background:#FFFDF9;
   border:1px solid var(--borda);
   border-radius:10px;
+  background:#FFFDF9;
 }
-
-.hamburguer span {
+.hamburguer span{
   display:block;
-  width:22px;
-  height:2px;
-  background:var(--terra-escuro);
-  border-radius:2px;
+  width:21px;height:2px;
+  border-radius:3px;
+  background:var(--terra2);
   transition:transform .2s,opacity .2s;
 }
-
-.hamburguer[aria-expanded="true"] span:first-child {
+.hamburguer[aria-expanded=true] span:first-child{
   transform:translateY(7px) rotate(45deg);
 }
-
-.hamburguer[aria-expanded="true"] span:nth-child(2) {
+.hamburguer[aria-expanded=true] span:nth-child(2){
   opacity:0;
 }
-
-.hamburguer[aria-expanded="true"] span:last-child {
+.hamburguer[aria-expanded=true] span:last-child{
   transform:translateY(-7px) rotate(-45deg);
 }
 
-/* BANNER PRINCIPAL - 16:9 */
+/* PROPORÇÃO 16:9 — SEM CORTES */
 
-.secao-banner { padding-top:20px; }
-
-.video-hero {
-  position:relative;
-  aspect-ratio:16/9;
-  width:100%;
-  overflow:hidden;
-  background:var(--floresta);
-  border-radius:15px;
-  box-shadow:var(--sombra);
-}
-
-.video-fundo {
-  position:absolute;
-  inset:0;
-  display:grid;
-  align-content:center;
-  justify-items:center;
-  padding:6%;
-  text-align:center;
-  background:linear-gradient(
-    130deg,#536644,var(--floresta) 65%,var(--terra)
-  );
-  color:var(--creme);
-}
-
-.video-fundo strong {
-  font:bold clamp(16px,3.8vw,45px)/1.12 Georgia,serif;
-}
-
-.video-fundo span {
-  font-size:clamp(10px,1.6vw,18px);
-  margin-top:8px;
-}
-
-.video-hero video {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-  opacity:0;
-  background:var(--floresta);
-}
-
-.video-hero video.pronto { opacity:1; }
-
-.controle {
-  position:absolute;
-  right:12px;
-  bottom:12px;
-  z-index:2;
-  padding:7px 12px;
-  border-radius:22px;
-  color:#fff;
-  background:rgba(28,32,23,.8);
-  border:1px solid rgba(255,255,255,.4);
-  font-size:12px;
-  font-weight:750;
-}
-
-/* APRESENTAÇÃO */
-
-.etiqueta {
-  display:block;
-  color:var(--terra);
-  font-size:12px;
-  font-weight:850;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-h1,h2,h3 {
-  font-family:Georgia,"Times New Roman",serif;
-  line-height:1.16;
-  text-wrap:balance;
-}
-
-h1 {
-  font-size:clamp(30px,4.7vw,52px);
-  margin:14px auto;
-  max-width:850px;
-}
-
-h2 {
-  font-size:clamp(27px,3.5vw,40px);
-  margin:9px 0 12px;
-}
-
-h3 {
-  font-size:clamp(21px,2.5vw,26px);
-  margin:12px 0 8px;
-}
-
-.boas-vindas {
-  padding:65px 0 48px;
-  text-align:center;
-}
-
-.boas-vindas p {
-  max-width:730px;
-  margin:0 auto;
-  color:var(--suave);
-  font-size:17px;
-}
-
-.bloco { padding:26px 0 42px; }
-
-.titulo-secao {
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:18px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.titulo-secao p {
-  max-width:490px;
-  margin:0;
-  color:var(--suave);
-  font-size:15px;
-}
-
-/* BANNERS 1920 x 1080 */
-/* MESMA IMAGEM NO DESKTOP E NO MOBILE */
-
-.arte {
+.video-box,.imagem-box{
   position:relative;
   display:block;
   width:100%;
   aspect-ratio:16/9;
   overflow:hidden;
-  background:#E9DDC8;
-  border:1px solid #D8C8B1;
-  border-radius:14px;
-  box-shadow:var(--sombra);
+  background:#E9DAC1;
+  border-radius:12px;
 }
-
-.arte img {
-  position:absolute;
-  inset:0;
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  opacity:0;
-}
-
-.arte img.carregada { opacity:1; }
-
-.arte-fundo {
+.video-box{background:var(--floresta)}
+.video-fundo{
   position:absolute;
   inset:0;
   display:grid;
   place-content:center;
-  text-align:center;
+  justify-items:center;
   gap:7px;
   padding:14px;
+  color:var(--creme);
   background:linear-gradient(
-    130deg,#F2E3C7,#E7D4B6
+    125deg,#50653B,var(--floresta) 70%,var(--terra)
   );
-  color:var(--terra-escuro);
+  text-align:center;
+}
+.video-fundo img{
+  display:block;
+  width:clamp(48px,10vw,105px);
+  height:auto;
+  aspect-ratio:1;
+  object-fit:contain;
+}
+.video-fundo strong{
+  font:bold clamp(16px,3.2vw,32px) Georgia,serif;
+}
+.video-box video{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:contain;
+  opacity:0;
+  background:var(--floresta);
+}
+.video-box video.pronto{opacity:1}
+
+/* PAUSA DISCRETA FORA DO BANNER */
+
+.video-acao{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:3px;
+  min-height:19px;
+}
+.video-acao button{
+  padding:1px 3px;
+  background:none;
+  border:0;
+  color:var(--suave);
+  font-size:11px;
+  opacity:.65;
+}
+.video-acao button:hover,
+.video-acao button:focus-visible{
+  opacity:1;
+  text-decoration:underline;
 }
 
-.arte-fundo strong {
-  font:bold clamp(19px,3.4vw,38px)/1.1 Georgia,serif;
-}
+/* PORTAL COMPACTO */
 
-.arte-fundo small {
-  font-size:clamp(11px,1.8vw,15px);
-  font-weight:650;
-}
-
-.arte-link {
+.conteudo{padding:12px 0 25px}
+.jornal-link{
+  display:block;
   text-decoration:none;
+  border-radius:12px;
+  box-shadow:var(--sombra);
   transition:transform .2s,box-shadow .2s;
 }
-
-.arte-link:hover {
+.jornal-link:hover{
   transform:translateY(-2px);
-  box-shadow:0 17px 40px rgba(45,24,10,.16);
+  box-shadow:0 14px 30px #2D180A22;
 }
-
-/* JORNAL MARAJOARA III */
-
-.jornal-rodape {
+.imagem-box{
+  border:1px solid #D8C8B1;
+}
+.imagem-box img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;height:100%;
+  object-fit:contain;
+  opacity:0;
+}
+.imagem-box img.carregada{
+  opacity:1;
+}
+.imagem-fundo{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-content:center;
+  gap:8px;
+  padding:15px;
+  background:linear-gradient(
+    130deg,#F2E3C7,#E3C9A3
+  );
+  color:var(--terra2);
+  text-align:center;
+}
+.imagem-fundo strong{
+  font:bold clamp(19px,3vw,34px)/1.2 Georgia,serif;
+}
+.imagem-fundo small{
+  font-size:clamp(11px,1.5vw,15px);
+}
+.link-discreto{
+  display:block;
+  margin:7px 2px 0;
+  text-align:right;
+  color:var(--terra2);
+  font-size:13px;
+  font-weight:750;
+  text-decoration:none;
+}
+.link-discreto:hover{text-decoration:underline}
+.secao-titulo{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
   gap:12px;
-  margin-top:13px;
+  margin:22px 0 12px;
 }
-
-.jornal-rodape p {
-  color:var(--suave);
+.secao-titulo h2{
   margin:0;
+  font:bold clamp(22px,3vw,29px) Georgia,serif;
+  line-height:1.2;
 }
-
-.botao-jornal {
-  display:inline-block;
-  background:var(--terra);
-  color:white;
-  padding:10px 17px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:750;
-}
-
-.botao-jornal:hover {
-  background:var(--terra-escuro);
+.secao-titulo::after{
+  content:"";
+  height:1px;
+  background:var(--borda);
+  flex:1;
 }
 
 /* AGENDA E COMUNICADOS */
 
-.grade {
+.grade{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
+  gap:16px;
 }
-
-.cartao {
+.tile{
   min-width:0;
+  overflow:hidden;
   background:#FFFDF9;
   border:1px solid var(--borda);
-  border-radius:15px;
-  overflow:hidden;
+  border-radius:12px;
 }
-
-.cartao .arte {
+.tile .imagem-box{
   border:0;
   border-radius:0;
-  box-shadow:none;
 }
-
-.cartao .arte-fundo strong {
-  font-size:clamp(18px,2.7vw,29px);
+.tile .imagem-fundo strong{
+  font-size:clamp(18px,2.2vw,29px);
 }
-
-.cartao-info {
-  padding:20px 23px 24px;
-}
-
-.cartao-info p {
-  margin:0 0 14px;
-  color:var(--suave);
-}
-
-.em-breve {
-  display:inline-block;
-  padding:5px 12px;
-  border-radius:25px;
-  color:var(--floresta);
-  background:#F1E9D8;
-  font-size:12px;
-  font-weight:800;
-}
-
-/* HISTÓRIA */
-
-.historia {
-  margin-top:28px;
-  padding:68px 0;
-  background:#F4EBD9;
-  border-top:1px solid var(--borda);
-}
-
-.historia-interna {
-  max-width:820px;
-  text-align:center;
-}
-
-.historia p {
-  color:var(--suave);
-  font-size:17px;
-}
-
-/* PROJETO */
-
-.projeto {
-  padding:50px 0;
-  color:var(--papel);
-  background:var(--floresta);
-}
-
-.projeto .etiqueta { color:#D9DFA7; }
-
-.projeto p {
-  max-width:750px;
-  color:#E5E8D4;
-}
-
-/* RODAPÉ */
-
-footer {
-  padding:26px 0;
-  background:var(--terra-escuro);
-  color:#F5E8D5;
+.tile-legenda{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:9px;
+  flex-wrap:wrap;
+  padding:11px 14px;
   font-size:13px;
 }
-
-.rodape {
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  flex-wrap:wrap;
+.tile-legenda strong{font-weight:800}
+.estado{
+  color:var(--verde);
+  font-size:11px;
+  font-weight:750;
 }
 
-/* MENU MOBILE COMPACTO */
+/* HISTÓRIA RESUMIDA */
 
-@media(max-width:900px) {
-  .hamburguer { display:flex; }
+.historia{
+  margin:14px 0 25px;
+  padding:17px 19px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:#F4EBD9;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:6px 14px;
+}
+.historia h2{
+  margin:0;
+  font:bold clamp(19px,2.4vw,25px) Georgia,serif;
+}
+.historia p{
+  margin:0;
+  color:var(--suave);
+  font-size:13px;
+}
+footer{
+  background:var(--terra2);
+  color:#F5E8D5;
+  text-align:center;
+  padding:15px;
+  font-size:12px;
+}
 
-  .menu {
+/* MENU MOBILE JUSTINHO */
+
+@media(max-width:900px){
+  .hamburguer{display:flex}
+  .menu{
     display:none;
     position:absolute;
-    top:100%;
-    right:0;
-    z-index:110;
+    z-index:60;
+    top:100%;right:0;
     width:max-content;
     max-width:calc(100vw - 28px);
-    max-height:calc(100dvh - 90px);
+    max-height:calc(100dvh - 85px);
     overflow-y:auto;
     flex-direction:column;
     align-items:stretch;
@@ -506,120 +372,76 @@ footer {
     border-radius:0 0 12px 12px;
     box-shadow:var(--sombra);
   }
-
-  .menu.aberto { display:flex; }
-
-  .menu a {
+  .menu.aberto{display:flex}
+  .menu a{
     display:flex;
     align-items:center;
     min-height:39px;
     padding:9px 12px;
     white-space:nowrap;
-    font-size:14px;
     line-height:1.25;
-    color:var(--terra-escuro);
-    background:#FFFDF9;
     border:1px solid var(--borda);
     border-radius:8px;
+    background:#FFFDF9;
+    color:var(--terra2);
+    font-size:14px;
   }
-
   .menu a:hover,
-  .menu a:focus-visible {
+  .menu a:focus-visible{
     background:var(--creme);
     border-color:var(--terra);
   }
 }
 
-/* MOBILE: IMAGEM INTEIRA, SEM RECORTE */
+/* ALINHAMENTO NO CELULAR */
 
-@media(max-width:680px) {
-  .grade {
+@media(max-width:650px){
+  .grade{
     grid-template-columns:1fr;
+    gap:12px;
   }
-
-  .titulo-secao { display:block; }
-  .titulo-secao p { margin-top:9px; }
-
-  .jornal-rodape {
-    align-items:stretch;
-    flex-direction:column;
-  }
-
-  .botao-jornal {
-    text-align:center;
-  }
+  .secao-titulo{margin-top:19px}
 }
 
-@media(max-width:500px) {
-  .container {
+@media(max-width:500px){
+  .container{
     width:calc(100% - 28px);
   }
-
-  .topo {
-    min-height:74px;
+  .topo{
+    min-height:72px;
     gap:8px;
   }
-
-  .marca { gap:9px; }
-
-  .logo {
-    width:48px;
-    height:48px;
+  .marca{gap:8px}
+  .marca img{
+    width:47px;height:47px;
   }
-
-  .marca-texto strong {
-    font-size:16px;
+  .marca-texto strong{
+    font-size:17px;
   }
-
-  .marca-texto small {
+  .marca-texto small{
     font-size:9px;
-    letter-spacing:.06em;
   }
-
-  .secao-banner {
-    padding-top:14px;
+  .video-box,.imagem-box{
+    border-radius:9px;
   }
-
-  .video-hero,
-  .arte {
-    border-radius:10px;
+  .conteudo{
+    padding:8px 0 17px;
   }
-
-  .controle {
-    right:6px;
-    bottom:6px;
-    padding:5px 8px;
-    font-size:10px;
+  .secao-titulo{
+    margin:18px 0 10px;
   }
-
-  .boas-vindas {
-    padding:48px 0 35px;
+  .historia{
+    margin:12px 0 18px;
+    padding:14px;
   }
-
-  .boas-vindas p,
-  .historia p {
-    font-size:16px;
-  }
-
-  .bloco {
-    padding:18px 0 35px;
-  }
-
-  .cartao-info {
-    padding:17px 18px 20px;
-  }
-
-  .historia {
-    padding:52px 0;
+  .tile .imagem-box{
+    border-radius:0;
   }
 }
 
-/* ACESSIBILIDADE */
-
-@media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior:auto; }
-
-  *,*::before,*::after {
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
     transition:none!important;
     animation:none!important;
   }
@@ -632,20 +454,17 @@ footer {
   Ir para o conteúdo
 </a>
 
-<!-- CABEÇALHO -->
-
 <header class="cabecalho" id="inicio">
   <div class="container topo">
 
     <a class="marca" href="#inicio"
-       aria-label="Início do portal Marajoara III">
+       aria-label="Marajoara III, início">
 
       <img
-        class="logo"
         src="assets/Logo-canto.png"
-        alt=""
         width="57"
         height="57"
+        alt=""
         decoding="async"
       >
 
@@ -668,8 +487,11 @@ footer {
       <span></span>
     </button>
 
-    <nav class="menu" id="menu-principal"
-         aria-label="Navegação principal">
+    <nav
+      class="menu"
+      id="menu-principal"
+      aria-label="Navegação principal"
+    >
       <a href="#inicio">Início</a>
       <a href="jornal.html">Jornal Marajoara III</a>
       <a href="#agenda">Agenda e Eventos</a>
@@ -682,283 +504,195 @@ footer {
 
 <main id="conteudo">
 
-<!-- BANNER PRINCIPAL EM VÍDEO -->
-
-<section class="secao-banner"
-         aria-label="Apresentação do Edifício Marajoara III">
-  <div class="container">
-
-    <div class="video-hero">
-
-      <div class="video-fundo" id="video-fundo">
-        <strong>Bem-vindos ao Marajoara III</strong>
-        <span>Memória, comunicação e comunidade</span>
-      </div>
-
-      <video
-        id="banner-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-label="Vídeo de apresentação do Edifício Marajoara III"
-      >
-        <source
-          src="assets/banner-marajoara.mp4"
-          type="video/mp4"
-        >
-      </video>
-
-      <button
-        class="controle"
-        id="controle-video"
-        type="button"
-        aria-label="Pausar vídeo"
-      >
-        ❚❚ <span>Pausar vídeo</span>
-      </button>
-
-    </div>
-  </div>
-</section>
-
-<!-- BOAS-VINDAS -->
-
-<section class="boas-vindas container"
-         aria-labelledby="boas-vindas-titulo">
-
-  <span class="etiqueta">
-    Memória • Comunicação • Comunidade
-  </span>
-
-  <h1 id="boas-vindas-titulo">
-    Nossa história merece ser bem cuidada.
+  <h1 class="sr-only">
+    Marajoara III — Portal do Edifício
   </h1>
 
-  <p>
-    Um espaço digital dedicado ao Edifício Marajoara III,
-    reunindo informações, acontecimentos e lembranças
-    da nossa comunidade.
-  </p>
-
-</section>
-
-<!-- JORNAL: MESMO BANNER 16:9 EM TODAS AS TELAS -->
-
-<section class="bloco container" id="jornal"
-         aria-labelledby="titulo-jornal">
-
-  <div class="titulo-secao">
-    <div>
-      <span class="etiqueta">
-        Informativo do condomínio
-      </span>
-      <h2 id="titulo-jornal">
-        Jornal Marajoara III
-      </h2>
-    </div>
-
-    <p>
-      Notícias e melhorias preservadas
-      em nosso arquivo digital.
-    </p>
-  </div>
-
-  <a
-    class="arte arte-link"
-    href="jornal.html"
-    aria-label="Abrir Jornal Marajoara III"
-  >
-    <div class="arte-fundo">
-      <strong>Jornal Marajoara III</strong>
-      <small>Acessar matérias e edições</small>
-    </div>
-
-    <img
-      src="assets/banner-jornal-marajoara3.jpg"
-      width="1920"
-      height="1080"
-      alt="Capa do Jornal Marajoara III"
-      loading="lazy"
-      decoding="async"
-    >
-  </a>
-
-  <div class="jornal-rodape">
-    <p>
-      Acompanhe as realizações,
-      fotografias e edições do jornal.
-    </p>
-
-    <a class="botao-jornal" href="jornal.html">
-      Acessar o jornal →
-    </a>
-  </div>
-
-</section>
-
-<!-- AGENDA E COMUNICADOS -->
-
-<section class="bloco container"
-         aria-labelledby="titulo-portal">
-
-  <div class="titulo-secao">
-    <div>
-      <span class="etiqueta">Nosso portal</span>
-      <h2 id="titulo-portal">
-        Explore o Marajoara III
-      </h2>
-    </div>
-
-    <p>
-      Agenda, comunicados e informações
-      importantes para a comunidade.
-    </p>
-  </div>
-
-  <div class="grade">
-
-    <!-- AGENDA -->
-
-    <article class="cartao" id="agenda">
-
-      <div class="arte">
-        <div class="arte-fundo">
-          <strong>Agenda e Eventos</strong>
-          <small>Encontros e datas importantes</small>
-        </div>
-
-        <img
-          src="assets/banner-agenda-eventos.jpg"
-          width="1920"
-          height="1080"
-          alt="Banner da seção Agenda e Eventos"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-
-      <div class="cartao-info">
-        <h3>Agenda e Eventos</h3>
-
-        <p>
-          Comemorações, reuniões e acontecimentos
-          de interesse dos moradores.
-        </p>
-
-        <span class="em-breve">
-          Em preparação
-        </span>
-      </div>
-
-    </article>
-
-    <!-- COMUNICADOS -->
-
-    <article class="cartao" id="comunicados">
-
-      <div class="arte">
-        <div class="arte-fundo">
-          <strong>Comunicados</strong>
-          <small>Informações do edifício</small>
-        </div>
-
-        <img
-          src="assets/banner-comunicado.jpg"
-          width="1920"
-          height="1080"
-          alt="Banner da seção Comunicados"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-
-      <div class="cartao-info">
-        <h3>Comunicados</h3>
-
-        <p>
-          Avisos gerais publicados mediante
-          revisão e autorização da administração.
-        </p>
-
-        <span class="em-breve">
-          Em preparação
-        </span>
-      </div>
-
-    </article>
-
-  </div>
-</section>
-
-<!-- NOSSA HISTÓRIA -->
-
-<section class="historia" id="historia"
-         aria-labelledby="titulo-historia">
-
-  <div class="container historia-interna">
-
-    <span class="etiqueta">
-      Memória do edifício
-    </span>
-
-    <h2 id="titulo-historia">
-      Nossa História
-    </h2>
-
-    <p>
-      Cada lugar guarda histórias,
-      encontros e momentos que merecem ser lembrados.
-    </p>
-
-    <p>
-      Estamos preparando um espaço para preservar
-      a trajetória do Edifício Marajoara III,
-      com registros confirmados e autorizados
-      para publicação.
-    </p>
-
-  </div>
-</section>
-
-<!-- PROJETO -->
-
-<section class="projeto" aria-labelledby="titulo-projeto">
   <div class="container">
 
-    <span class="etiqueta">Marajoara III</span>
+    <!-- VÍDEO DE APRESENTAÇÃO -->
 
-    <h2 id="titulo-projeto">
-      Estamos construindo essa ideia.
-    </h2>
+    <section
+      aria-label="Apresentação do Edifício Marajoara III"
+      style="padding-top:12px"
+    >
 
-    <p>
-      Novos conteúdos serão adicionados gradualmente,
-      respeitando a privacidade e as necessidades
-      da comunidade.
-    </p>
+      <div class="video-box">
+
+        <div class="video-fundo" id="video-fundo">
+          <img
+            src="assets/Logo-canto.png"
+            width="100"
+            height="100"
+            alt=""
+          >
+          <strong>Bem-vindos ao Marajoara III</strong>
+        </div>
+
+        <video
+          id="banner-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Vídeo de apresentação do Edifício Marajoara III"
+        >
+          <source
+            src="assets/banner-marajoara.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+      </div>
+
+      <div class="video-acao">
+        <button
+          id="controle-video"
+          type="button"
+          aria-label="Pausar animação"
+        >
+          Pausar animação
+        </button>
+      </div>
+
+    </section>
+
+    <!-- JORNAL: O BANNER JÁ É A CHAMADA -->
+
+    <section
+      class="conteudo"
+      id="jornal"
+      aria-labelledby="titulo-jornal"
+    >
+
+      <h2 class="sr-only" id="titulo-jornal">
+        Jornal Marajoara III
+      </h2>
+
+      <a
+        class="jornal-link"
+        href="jornal.html"
+        aria-label="Abrir o Jornal Marajoara III"
+      >
+        <span class="imagem-box">
+
+          <span class="imagem-fundo">
+            <strong>Jornal Marajoara III</strong>
+            <small>Notícias, melhorias e memória do edifício</small>
+          </span>
+
+          <img
+            src="assets/banner-jornal-marajoara3.jpg"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            alt="Capa do Jornal Marajoara III. Toque para abrir o jornal."
+          >
+
+        </span>
+      </a>
+
+      <a class="link-discreto" href="jornal.html">
+        Abrir o jornal ↗
+      </a>
+
+    </section>
+
+    <!-- AGENDA E COMUNICADOS -->
+
+    <section aria-labelledby="titulo-portal">
+
+      <div class="secao-titulo">
+        <h2 id="titulo-portal">
+          Explore o Marajoara III
+        </h2>
+      </div>
+
+      <div class="grade">
+
+        <article class="tile" id="agenda">
+
+          <div class="imagem-box">
+
+            <div class="imagem-fundo">
+              <strong>Agenda e Eventos</strong>
+              <small>Encontros e datas importantes</small>
+            </div>
+
+            <img
+              src="assets/banner-agenda-eventos.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+              alt="Banner de Agenda e Eventos"
+            >
+
+          </div>
+
+          <div class="tile-legenda">
+            <strong>Agenda e Eventos</strong>
+            <span class="estado">Em preparação</span>
+          </div>
+
+        </article>
+
+        <article class="tile" id="comunicados">
+
+          <div class="imagem-box">
+
+            <div class="imagem-fundo">
+              <strong>Comunicados</strong>
+              <small>Informações do edifício</small>
+            </div>
+
+            <img
+              src="assets/banner-comunicado.jpg"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+              alt="Banner de Comunicados"
+            >
+
+          </div>
+
+          <div class="tile-legenda">
+            <strong>Comunicados</strong>
+            <span class="estado">Em preparação</span>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- HISTÓRIA DISCRETA -->
+
+    <section
+      class="historia"
+      id="historia"
+      aria-labelledby="titulo-historia"
+    >
+
+      <h2 id="titulo-historia">
+        Nossa História
+      </h2>
+
+      <p>
+        Memórias do Edifício Marajoara III · Em preparação
+      </p>
+
+    </section>
 
   </div>
-</section>
-
 </main>
 
-<!-- RODAPÉ -->
-
 <footer>
-  <div class="container rodape">
-
-    <span>
-      © <span id="ano">2026</span>
-      Marajoara III · Edifício Marajoara III
-    </span>
-
-    <span>
-      Comunicação com identidade e cuidado.
-    </span>
-
-  </div>
+  © <span id="ano">2026</span>
+  Marajoara III · Edifício Marajoara III
 </footer>
 
 <script>
@@ -968,28 +702,28 @@ const $ = id => document.getElementById(id);
 
 $('ano').textContent = new Date().getFullYear();
 
-// MENU RESPONSIVO
+// MENU
 
-const hamburguer = $('hamburguer');
+const botao = $('hamburguer');
 const menu = $('menu-principal');
 
-function abrirMenu(sim) {
-  menu.classList.toggle('aberto', sim);
+function abrirMenu(aberto) {
+  menu.classList.toggle('aberto', aberto);
 
-  hamburguer.setAttribute(
+  botao.setAttribute(
     'aria-expanded',
-    String(sim)
+    String(aberto)
   );
 
-  hamburguer.setAttribute(
+  botao.setAttribute(
     'aria-label',
-    sim ? 'Fechar menu' : 'Abrir menu'
+    aberto ? 'Fechar menu' : 'Abrir menu'
   );
 }
 
-hamburguer.addEventListener('click', () => {
+botao.addEventListener('click', () => {
   abrirMenu(
-    hamburguer.getAttribute('aria-expanded') !== 'true'
+    botao.getAttribute('aria-expanded') !== 'true'
   );
 });
 
@@ -999,8 +733,8 @@ menu.querySelectorAll('a').forEach(a => {
 
 document.addEventListener('click', e => {
   if (
-    !hamburguer.contains(e.target) &&
-    !menu.contains(e.target)
+    !menu.contains(e.target) &&
+    !botao.contains(e.target)
   ) {
     abrirMenu(false);
   }
@@ -1009,26 +743,26 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (
     e.key === 'Escape' &&
-    hamburguer.getAttribute('aria-expanded') === 'true'
+    botao.getAttribute('aria-expanded') === 'true'
   ) {
     abrirMenu(false);
-    hamburguer.focus();
+    botao.focus();
   }
 });
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) abrirMenu(false);
+  if (innerWidth > 900) abrirMenu(false);
 });
 
-// BANNERS: EXIBIR JPG QUANDO ESTIVER CARREGADO
+// CAPAS 16:9 — SEM IMAGENS QUEBRADAS
 
-document.querySelectorAll('.arte img').forEach(img => {
+document.querySelectorAll('.imagem-box img').forEach(img => {
 
   const pronto = () => {
     img.classList.add('carregada');
 
     const fundo =
-      img.parentElement.querySelector('.arte-fundo');
+      img.parentElement.querySelector('.imagem-fundo');
 
     if (fundo) fundo.hidden = true;
   };
@@ -1045,34 +779,34 @@ document.querySelectorAll('.arte img').forEach(img => {
 
 });
 
-// VÍDEO PRINCIPAL
+// VÍDEO
 
 const video = $('banner-video');
 const controle = $('controle-video');
 
-const reduzido = window.matchMedia(
+const reducao = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches;
 
-function sincronizarControle() {
+function atualizarVideo() {
   const tocando = !video.paused && !video.ended;
 
-  controle.innerHTML = tocando
-    ? '❚❚ <span>Pausar vídeo</span>'
-    : '▶ <span>Reproduzir vídeo</span>';
+  controle.textContent = tocando
+    ? 'Pausar animação'
+    : 'Reproduzir animação';
 
   controle.setAttribute(
     'aria-label',
-    tocando ? 'Pausar vídeo' : 'Reproduzir vídeo'
+    controle.textContent
   );
 }
 
 video.addEventListener('playing', () => {
   video.classList.add('pronto');
-  sincronizarControle();
+  atualizarVideo();
 });
 
-video.addEventListener('pause', sincronizarControle);
+video.addEventListener('pause', atualizarVideo);
 
 video.addEventListener('error', () => {
   video.classList.remove('pronto');
@@ -1081,21 +815,21 @@ video.addEventListener('error', () => {
 
 controle.addEventListener('click', () => {
   if (video.paused) {
-    video.play().catch(sincronizarControle);
+    video.play().catch(atualizarVideo);
   } else {
     video.pause();
   }
 });
 
-if (reduzido) {
+if (reducao) {
   video.autoplay = false;
   video.pause();
-} else if (!video.paused && video.readyState >= 2) {
-  video.classList.add('pronto');
+} else {
+  video.play().catch(atualizarVideo);
 }
 
-sincronizarControle();
-
+atualizarVideo();
 </script>
+
 </body>
 </html>
