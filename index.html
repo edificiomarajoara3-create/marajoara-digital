@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#AA3716">
 <meta name="description" content="Marajoara III: jornal, agenda, comunicados e memórias do Edifício Marajoara III.">
 <title>Marajoara III | Portal do Edifício</title>
+
 <style>
 :root{
   --terra:#AA3716;
@@ -20,49 +21,71 @@
   --borda:#E5D7BF;
   --sombra:0 10px 26px #2D180A14;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:92px}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:92px;
+}
+
 body{
   margin:0;
   background:var(--papel);
   color:var(--texto);
   font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
 }
+
 a{color:inherit}
 button{font:inherit;cursor:pointer}
-a:focus-visible,button:focus-visible{
+
+a:focus-visible,
+button:focus-visible{
   outline:3px solid var(--verde);
   outline-offset:3px;
 }
+
 [hidden]{display:none!important}
+
 .container{
   width:min(1120px,calc(100% - 30px));
   margin-inline:auto;
 }
+
 .sr-only{
   position:absolute;
-  width:1px;height:1px;
+  width:1px;
+  height:1px;
   overflow:hidden;
   clip-path:inset(50%);
   white-space:nowrap;
 }
+
 .skip{
   position:fixed;
-  top:-90px;left:12px;z-index:999;
+  top:-90px;
+  left:12px;
+  z-index:999;
   padding:9px 14px;
   background:var(--floresta);
-  color:white;border-radius:8px;
+  color:white;
+  border-radius:8px;
 }
+
 .skip:focus{top:10px}
 
 /* CABEÇALHO */
 
 .cabecalho{
   position:sticky;
-  top:0;z-index:50;
+  top:0;
+  z-index:50;
   background:var(--papel);
   border-bottom:1px solid var(--borda);
 }
+
 .topo{
   min-height:78px;
   display:flex;
@@ -71,6 +94,7 @@ a:focus-visible,button:focus-visible{
   gap:12px;
   position:relative;
 }
+
 .marca{
   display:flex;
   align-items:center;
@@ -78,19 +102,24 @@ a:focus-visible,button:focus-visible{
   min-width:0;
   text-decoration:none;
 }
+
 .marca img{
-  width:54px;height:54px;
+  width:54px;
+  height:54px;
   object-fit:contain;
   flex:none;
 }
+
 .marca-texto{
   display:flex;
   flex-direction:column;
   line-height:1.15;
 }
+
 .marca-texto strong{
   font:bold 19px Georgia,serif;
 }
+
 .marca-texto small{
   margin-top:5px;
   color:var(--verde);
@@ -99,49 +128,64 @@ a:focus-visible,button:focus-visible{
   letter-spacing:.08em;
   text-transform:uppercase;
 }
+
 .menu{
   display:flex;
   align-items:center;
   gap:19px;
 }
+
 .menu a{
   text-decoration:none;
   font-size:13px;
   font-weight:750;
 }
-.menu a:hover{color:var(--terra)}
+
+.menu a:hover{
+  color:var(--terra);
+}
+
+/* MENU HAMBÚRGUER */
+
 .hamburguer{
   display:none;
   align-items:center;
   justify-content:center;
   flex-direction:column;
   gap:5px;
-  width:45px;height:45px;
+  width:45px;
+  height:45px;
   flex:none;
   border:1px solid var(--borda);
   border-radius:10px;
   background:#FFFDF9;
 }
+
 .hamburguer span{
   display:block;
-  width:21px;height:2px;
+  width:21px;
+  height:2px;
   border-radius:3px;
   background:var(--terra2);
   transition:transform .2s,opacity .2s;
 }
+
 .hamburguer[aria-expanded=true] span:first-child{
   transform:translateY(7px) rotate(45deg);
 }
+
 .hamburguer[aria-expanded=true] span:nth-child(2){
   opacity:0;
 }
+
 .hamburguer[aria-expanded=true] span:last-child{
   transform:translateY(-7px) rotate(-45deg);
 }
 
-/* PROPORÇÃO 16:9 — SEM CORTES */
+/* BANNERS 16:9, SEM RECORTES */
 
-.video-box,.imagem-box{
+.video-box,
+.imagem-box{
   position:relative;
   display:block;
   width:100%;
@@ -150,7 +194,11 @@ a:focus-visible,button:focus-visible{
   background:#E9DAC1;
   border-radius:12px;
 }
-.video-box{background:var(--floresta)}
+
+.video-box{
+  background:var(--floresta);
+}
+
 .video-fundo{
   position:absolute;
   inset:0;
@@ -161,10 +209,14 @@ a:focus-visible,button:focus-visible{
   padding:14px;
   color:var(--creme);
   background:linear-gradient(
-    125deg,#50653B,var(--floresta) 70%,var(--terra)
+    125deg,
+    #50653B,
+    var(--floresta) 70%,
+    var(--terra)
   );
   text-align:center;
 }
+
 .video-fundo img{
   display:block;
   width:clamp(48px,10vw,105px);
@@ -172,20 +224,26 @@ a:focus-visible,button:focus-visible{
   aspect-ratio:1;
   object-fit:contain;
 }
+
 .video-fundo strong{
   font:bold clamp(16px,3.2vw,32px) Georgia,serif;
 }
+
 .video-box video{
   position:absolute;
   inset:0;
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   object-fit:contain;
   opacity:0;
   background:var(--floresta);
 }
-.video-box video.pronto{opacity:1}
 
-/* PAUSA DISCRETA FORA DO BANNER */
+.video-box video.pronto{
+  opacity:1;
+}
+
+/* CONTROLE DISCRETO DO VÍDEO */
 
 .video-acao{
   display:flex;
@@ -193,6 +251,7 @@ a:focus-visible,button:focus-visible{
   margin-top:3px;
   min-height:19px;
 }
+
 .video-acao button{
   padding:1px 3px;
   background:none;
@@ -201,15 +260,19 @@ a:focus-visible,button:focus-visible{
   font-size:11px;
   opacity:.65;
 }
+
 .video-acao button:hover,
 .video-acao button:focus-visible{
   opacity:1;
   text-decoration:underline;
 }
 
-/* PORTAL COMPACTO */
+/* JORNAL */
 
-.conteudo{padding:12px 0 25px}
+.conteudo{
+  padding:12px 0 25px;
+}
+
 .jornal-link{
   display:block;
   text-decoration:none;
@@ -217,24 +280,30 @@ a:focus-visible,button:focus-visible{
   box-shadow:var(--sombra);
   transition:transform .2s,box-shadow .2s;
 }
+
 .jornal-link:hover{
   transform:translateY(-2px);
   box-shadow:0 14px 30px #2D180A22;
 }
+
 .imagem-box{
   border:1px solid #D8C8B1;
 }
+
 .imagem-box img{
   position:absolute;
   inset:0;
   display:block;
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   object-fit:contain;
   opacity:0;
 }
+
 .imagem-box img.carregada{
   opacity:1;
 }
+
 .imagem-fundo{
   position:absolute;
   inset:0;
@@ -243,17 +312,22 @@ a:focus-visible,button:focus-visible{
   gap:8px;
   padding:15px;
   background:linear-gradient(
-    130deg,#F2E3C7,#E3C9A3
+    130deg,
+    #F2E3C7,
+    #E3C9A3
   );
   color:var(--terra2);
   text-align:center;
 }
+
 .imagem-fundo strong{
   font:bold clamp(19px,3vw,34px)/1.2 Georgia,serif;
 }
+
 .imagem-fundo small{
   font-size:clamp(11px,1.5vw,15px);
 }
+
 .link-discreto{
   display:block;
   margin:7px 2px 0;
@@ -263,18 +337,26 @@ a:focus-visible,button:focus-visible{
   font-weight:750;
   text-decoration:none;
 }
-.link-discreto:hover{text-decoration:underline}
+
+.link-discreto:hover{
+  text-decoration:underline;
+}
+
+/* AGENDA E COMUNICADOS */
+
 .secao-titulo{
   display:flex;
   align-items:center;
   gap:12px;
   margin:22px 0 12px;
 }
+
 .secao-titulo h2{
   margin:0;
   font:bold clamp(22px,3vw,29px) Georgia,serif;
   line-height:1.2;
 }
+
 .secao-titulo::after{
   content:"";
   height:1px;
@@ -282,13 +364,12 @@ a:focus-visible,button:focus-visible{
   flex:1;
 }
 
-/* AGENDA E COMUNICADOS */
-
 .grade{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:16px;
 }
+
 .tile{
   min-width:0;
   overflow:hidden;
@@ -296,13 +377,16 @@ a:focus-visible,button:focus-visible{
   border:1px solid var(--borda);
   border-radius:12px;
 }
+
 .tile .imagem-box{
   border:0;
   border-radius:0;
 }
+
 .tile .imagem-fundo strong{
   font-size:clamp(18px,2.2vw,29px);
 }
+
 .tile-legenda{
   display:flex;
   align-items:center;
@@ -312,14 +396,18 @@ a:focus-visible,button:focus-visible{
   padding:11px 14px;
   font-size:13px;
 }
-.tile-legenda strong{font-weight:800}
+
+.tile-legenda strong{
+  font-weight:800;
+}
+
 .estado{
   color:var(--verde);
   font-size:11px;
   font-weight:750;
 }
 
-/* HISTÓRIA RESUMIDA */
+/* NOSSA HISTÓRIA */
 
 .historia{
   margin:14px 0 25px;
@@ -333,15 +421,18 @@ a:focus-visible,button:focus-visible{
   flex-wrap:wrap;
   gap:6px 14px;
 }
+
 .historia h2{
   margin:0;
   font:bold clamp(19px,2.4vw,25px) Georgia,serif;
 }
+
 .historia p{
   margin:0;
   color:var(--suave);
   font-size:13px;
 }
+
 footer{
   background:var(--terra2);
   color:#F5E8D5;
@@ -350,15 +441,20 @@ footer{
   font-size:12px;
 }
 
-/* MENU MOBILE JUSTINHO */
+/* MENU MOBILE COMPACTO */
 
 @media(max-width:900px){
-  .hamburguer{display:flex}
+
+  .hamburguer{
+    display:flex;
+  }
+
   .menu{
     display:none;
     position:absolute;
     z-index:60;
-    top:100%;right:0;
+    top:100%;
+    right:0;
     width:max-content;
     max-width:calc(100vw - 28px);
     max-height:calc(100dvh - 85px);
@@ -372,7 +468,11 @@ footer{
     border-radius:0 0 12px 12px;
     box-shadow:var(--sombra);
   }
-  .menu.aberto{display:flex}
+
+  .menu.aberto{
+    display:flex;
+  }
+
   .menu a{
     display:flex;
     align-items:center;
@@ -386,6 +486,7 @@ footer{
     color:var(--terra2);
     font-size:14px;
   }
+
   .menu a:hover,
   .menu a:focus-visible{
     background:var(--creme);
@@ -393,73 +494,275 @@ footer{
   }
 }
 
-/* ALINHAMENTO NO CELULAR */
+/* CELULARES */
 
 @media(max-width:650px){
+
   .grade{
     grid-template-columns:1fr;
     gap:12px;
   }
-  .secao-titulo{margin-top:19px}
+
+  .secao-titulo{
+    margin-top:19px;
+  }
 }
 
 @media(max-width:500px){
+
   .container{
     width:calc(100% - 28px);
   }
+
   .topo{
     min-height:72px;
     gap:8px;
   }
-  .marca{gap:8px}
-  .marca img{
-    width:47px;height:47px;
+
+  .marca{
+    gap:8px;
   }
+
+  .marca img{
+    width:47px;
+    height:47px;
+  }
+
   .marca-texto strong{
     font-size:17px;
   }
+
   .marca-texto small{
     font-size:9px;
   }
-  .video-box,.imagem-box{
+
+  .video-box,
+  .imagem-box{
     border-radius:9px;
   }
+
   .conteudo{
     padding:8px 0 17px;
   }
+
   .secao-titulo{
     margin:18px 0 10px;
   }
+
   .historia{
     margin:12px 0 18px;
     padding:14px;
   }
+
   .tile .imagem-box{
     border-radius:0;
   }
 }
 
+/* ACESSIBILIDADE */
+
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
+  html{
+    scroll-behavior:auto;
+  }
+
   *,*::before,*::after{
     transition:none!important;
     animation:none!important;
   }
 }
+
+/* =====================================
+   NOVO LAYOUT PARA DESKTOP
+   A PARTIR DE 901 PIXELS
+   ===================================== */
+
+@media(min-width:901px){
+
+  .container{
+    width:min(1200px,calc(100% - 64px));
+  }
+
+  /* Cabeçalho mais elegante */
+
+  .topo{
+    min-height:88px;
+  }
+
+  .marca img{
+    width:60px;
+    height:60px;
+  }
+
+  .marca-texto strong{
+    font-size:22px;
+  }
+
+  .menu{
+    gap:23px;
+  }
+
+  .menu a{
+    padding:9px 0;
+    font-size:13px;
+    border-bottom:2px solid transparent;
+    transition:color .18s,border-color .18s;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible{
+    color:var(--terra);
+    border-bottom-color:var(--terra);
+  }
+
+  /* Vídeo e jornal lado a lado */
+
+  main > .container{
+    display:grid;
+    grid-template-columns:
+      minmax(0,1.55fr)
+      minmax(0,1fr);
+    align-items:stretch;
+    column-gap:24px;
+    row-gap:24px;
+    padding-top:28px;
+  }
+
+  main > .container > section:first-of-type{
+    min-width:0;
+    padding-top:0!important;
+  }
+
+  .video-box{
+    border-radius:15px;
+    box-shadow:var(--sombra);
+  }
+
+  .video-acao{
+    padding-right:5px;
+  }
+
+  /* Jornal em cartão de destaque */
+
+  #jornal{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    margin:0;
+    padding:15px;
+    gap:12px;
+    background:#FFFDF9;
+    border:1px solid var(--borda);
+    border-radius:15px;
+    box-shadow:var(--sombra);
+  }
+
+  #jornal::before{
+    content:'ARQUIVO DIGITAL';
+    display:block;
+    color:var(--verde);
+    font-size:11px;
+    font-weight:850;
+    letter-spacing:.14em;
+  }
+
+  #jornal .jornal-link,
+  #jornal .imagem-box{
+    border-radius:9px;
+    box-shadow:none;
+  }
+
+  #jornal .link-discreto{
+    display:block;
+    margin:auto 0 0;
+    padding:11px 15px;
+    background:var(--terra);
+    color:#fff;
+    border-radius:9px;
+    text-align:center;
+    font-size:13px;
+    font-weight:800;
+    transition:background .18s;
+  }
+
+  #jornal .link-discreto:hover{
+    background:var(--terra2);
+    text-decoration:none;
+  }
+
+  /* Segunda faixa: Agenda e Comunicados */
+
+  main > .container > section:nth-of-type(3){
+    grid-column:1/-1;
+    min-width:0;
+  }
+
+  .secao-titulo{
+    margin:8px 0 17px;
+  }
+
+  .secao-titulo h2{
+    font-size:29px;
+  }
+
+  .grade{
+    gap:24px;
+  }
+
+  .tile{
+    border-radius:15px;
+    box-shadow:0 7px 26px #2D180A0C;
+  }
+
+  .tile .imagem-box{
+    border-radius:0;
+  }
+
+  .tile-legenda{
+    padding:13px 17px;
+    font-size:14px;
+  }
+
+  /* História em faixa discreta */
+
+  #historia{
+    grid-column:1/-1;
+    margin:0 0 28px;
+    padding:22px 26px;
+  }
+
+  #historia h2{
+    font-size:25px;
+  }
+
+  #historia p{
+    font-size:14px;
+  }
+
+  footer{
+    padding:19px;
+  }
+}
+
 </style>
 </head>
 
 <body>
+
 <a class="skip" href="#conteudo">
   Ir para o conteúdo
 </a>
 
+<!-- CABEÇALHO -->
+
 <header class="cabecalho" id="inicio">
   <div class="container topo">
 
-    <a class="marca" href="#inicio"
-       aria-label="Marajoara III, início">
-
+    <a
+      class="marca"
+      href="#inicio"
+      aria-label="Marajoara III, início"
+    >
       <img
         src="assets/Logo-canto.png"
         width="57"
@@ -510,7 +813,7 @@ footer{
 
   <div class="container">
 
-    <!-- VÍDEO DE APRESENTAÇÃO -->
+    <!-- VÍDEO DE BOAS-VINDAS -->
 
     <section
       aria-label="Apresentação do Edifício Marajoara III"
@@ -526,7 +829,10 @@ footer{
             height="100"
             alt=""
           >
-          <strong>Bem-vindos ao Marajoara III</strong>
+
+          <strong>
+            Bem-vindos ao Marajoara III
+          </strong>
         </div>
 
         <video
@@ -558,7 +864,7 @@ footer{
 
     </section>
 
-    <!-- JORNAL: O BANNER JÁ É A CHAMADA -->
+    <!-- BANNER DO JORNAL -->
 
     <section
       class="conteudo"
@@ -575,11 +881,14 @@ footer{
         href="jornal.html"
         aria-label="Abrir o Jornal Marajoara III"
       >
+
         <span class="imagem-box">
 
           <span class="imagem-fundo">
             <strong>Jornal Marajoara III</strong>
-            <small>Notícias, melhorias e memória do edifício</small>
+            <small>
+              Notícias, melhorias e memória do edifício
+            </small>
           </span>
 
           <img
@@ -612,13 +921,17 @@ footer{
 
       <div class="grade">
 
+        <!-- AGENDA -->
+
         <article class="tile" id="agenda">
 
           <div class="imagem-box">
 
             <div class="imagem-fundo">
               <strong>Agenda e Eventos</strong>
-              <small>Encontros e datas importantes</small>
+              <small>
+                Encontros e datas importantes
+              </small>
             </div>
 
             <img
@@ -634,10 +947,14 @@ footer{
 
           <div class="tile-legenda">
             <strong>Agenda e Eventos</strong>
-            <span class="estado">Em preparação</span>
+            <span class="estado">
+              Em preparação
+            </span>
           </div>
 
         </article>
+
+        <!-- COMUNICADOS -->
 
         <article class="tile" id="comunicados">
 
@@ -645,7 +962,9 @@ footer{
 
             <div class="imagem-fundo">
               <strong>Comunicados</strong>
-              <small>Informações do edifício</small>
+              <small>
+                Informações do edifício
+              </small>
             </div>
 
             <img
@@ -661,7 +980,9 @@ footer{
 
           <div class="tile-legenda">
             <strong>Comunicados</strong>
-            <span class="estado">Em preparação</span>
+            <span class="estado">
+              Em preparação
+            </span>
           </div>
 
         </article>
@@ -669,7 +990,7 @@ footer{
       </div>
     </section>
 
-    <!-- HISTÓRIA DISCRETA -->
+    <!-- NOSSA HISTÓRIA -->
 
     <section
       class="historia"
@@ -690,6 +1011,8 @@ footer{
   </div>
 </main>
 
+<!-- RODAPÉ -->
+
 <footer>
   © <span id="ano">2026</span>
   Marajoara III · Edifício Marajoara III
@@ -702,12 +1025,13 @@ const $ = id => document.getElementById(id);
 
 $('ano').textContent = new Date().getFullYear();
 
-// MENU
+/* MENU RESPONSIVO */
 
 const botao = $('hamburguer');
 const menu = $('menu-principal');
 
 function abrirMenu(aberto) {
+
   menu.classList.toggle('aberto', aberto);
 
   botao.setAttribute(
@@ -732,15 +1056,18 @@ menu.querySelectorAll('a').forEach(a => {
 });
 
 document.addEventListener('click', e => {
+
   if (
     !menu.contains(e.target) &&
     !botao.contains(e.target)
   ) {
     abrirMenu(false);
   }
+
 });
 
 document.addEventListener('keydown', e => {
+
   if (
     e.key === 'Escape' &&
     botao.getAttribute('aria-expanded') === 'true'
@@ -748,17 +1075,19 @@ document.addEventListener('keydown', e => {
     abrirMenu(false);
     botao.focus();
   }
+
 });
 
 window.addEventListener('resize', () => {
   if (innerWidth > 900) abrirMenu(false);
 });
 
-// CAPAS 16:9 — SEM IMAGENS QUEBRADAS
+/* CARREGAMENTO DOS BANNERS */
 
 document.querySelectorAll('.imagem-box img').forEach(img => {
 
   const pronto = () => {
+
     img.classList.add('carregada');
 
     const fundo =
@@ -768,18 +1097,30 @@ document.querySelectorAll('.imagem-box img').forEach(img => {
   };
 
   if (img.complete && img.naturalWidth > 0) {
+
     pronto();
+
   } else {
-    img.addEventListener('load', pronto, {once:true});
+
+    img.addEventListener(
+      'load',
+      pronto,
+      {once:true}
+    );
+
   }
 
-  img.addEventListener('error', () => {
-    img.hidden = true;
-  }, {once:true});
+  img.addEventListener(
+    'error',
+    () => {
+      img.hidden = true;
+    },
+    {once:true}
+  );
 
 });
 
-// VÍDEO
+/* VÍDEO PRINCIPAL */
 
 const video = $('banner-video');
 const controle = $('controle-video');
@@ -789,6 +1130,7 @@ const reducao = window.matchMedia(
 ).matches;
 
 function atualizarVideo() {
+
   const tocando = !video.paused && !video.ended;
 
   controle.textContent = tocando
@@ -799,6 +1141,7 @@ function atualizarVideo() {
     'aria-label',
     controle.textContent
   );
+
 }
 
 video.addEventListener('playing', () => {
@@ -806,7 +1149,10 @@ video.addEventListener('playing', () => {
   atualizarVideo();
 });
 
-video.addEventListener('pause', atualizarVideo);
+video.addEventListener(
+  'pause',
+  atualizarVideo
+);
 
 video.addEventListener('error', () => {
   video.classList.remove('pronto');
@@ -814,21 +1160,32 @@ video.addEventListener('error', () => {
 });
 
 controle.addEventListener('click', () => {
+
   if (video.paused) {
+
     video.play().catch(atualizarVideo);
+
   } else {
+
     video.pause();
+
   }
+
 });
 
 if (reducao) {
+
   video.autoplay = false;
   video.pause();
+
 } else {
+
   video.play().catch(atualizarVideo);
+
 }
 
 atualizarVideo();
+
 </script>
 
 </body>
